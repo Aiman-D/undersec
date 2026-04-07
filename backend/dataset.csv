@@ -1,0 +1,1001 @@
+qt_score,schema_change,has_multi_statement,has_comment,has_union,rows_affected_log,time_of_day,user_frequency,q_len,complexity,table_len,is_anomalous,query_text
+0,0,0,0,0,1.9459101490553132,10.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+2,0,0,0,0,1.6094379124341003,9.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,1.791759469228055,14.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,0,0,0,2.0794415416798357,9.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,0,0,0,2.3978952727983707,15.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,1.791759469228055,9.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+0,0,0,0,0,1.9459101490553132,15.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,0,0,0,1.9459101490553132,8.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,1.791759469228055,17.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+2,0,0,0,0,0.6931471805599453,9.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+1,0,0,0,0,1.9459101490553132,8.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+10,5,0,0,0,10.708824377084602,2.0,1.0,39,0,0,1,ALTER TABLE payments DROP COLUMN amount
+0,0,0,0,0,1.3862943611198906,10.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,1.0986122886681098,16.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,1.6094379124341003,18.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+0,0,0,0,0,2.0794415416798357,8.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+0,0,0,0,0,2.1972245773362196,14.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+1,0,0,0,0,2.0794415416798357,15.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,1.3862943611198906,10.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+0,0,0,0,0,1.3862943611198906,15.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,1.6094379124341003,14.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,1.3862943611198906,18.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+1,0,0,0,0,1.791759469228055,17.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,2.0794415416798357,11.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,0.6931471805599453,17.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,1.9459101490553132,16.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+0,0,0,0,0,2.0794415416798357,12.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+2,0,0,0,0,1.3862943611198906,12.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+2,0,0,0,0,1.6094379124341003,18.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,1.3862943611198906,14.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+1,0,0,0,0,1.6094379124341003,15.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+1,0,0,0,0,2.0794415416798357,12.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+2,0,0,0,0,2.0794415416798357,14.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,2.0794415416798357,13.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,0,0,0,2.0794415416798357,17.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,3,3,0,9.471627133068433,2.0,1.0,43,1,5,1,SELECT * FROM users WHERE id = 1 OR 1=1; --
+0,0,0,0,0,2.1972245773362196,9.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+2,0,0,0,0,2.0794415416798357,17.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,1.9459101490553132,14.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,0,0,0,1.9459101490553132,17.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+0,0,0,0,0,2.0794415416798357,12.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,2.3978952727983707,9.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+2,0,0,0,0,1.0986122886681098,17.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,2.0794415416798357,10.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,0,0,0,2.1972245773362196,13.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,0,0,0,2.3978952727983707,9.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,0,0,0,1.791759469228055,14.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+1,0,0,0,0,1.791759469228055,14.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+2,0,0,0,0,1.0986122886681098,9.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+5,0,0,0,0,10.081633737919603,2.0,1.0,22,0,9,1,DELETE FROM customers;
+0,0,0,0,0,1.9459101490553132,13.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,1.9459101490553132,14.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+0,0,0,0,0,2.0794415416798357,13.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+0,0,0,0,0,0.6931471805599453,11.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+1,0,0,0,0,2.0794415416798357,16.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+10,5,0,0,0,10.005005695726476,4.0,1.0,39,0,0,1,ALTER TABLE payments DROP COLUMN amount
+1,0,0,0,0,1.6094379124341003,17.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+2,0,0,0,0,1.9459101490553132,15.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,2.302585092994046,17.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+0,0,0,0,0,1.3862943611198906,9.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,1.9459101490553132,12.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+2,0,0,0,0,2.3978952727983707,10.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,2.0794415416798357,16.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+1,0,0,0,0,2.1972245773362196,13.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+1,0,0,0,0,2.1972245773362196,18.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+1,0,0,0,0,1.791759469228055,14.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,1.791759469228055,12.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,0,0,0,2.302585092994046,11.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,1.0986122886681098,17.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,0,0,0,1.3862943611198906,12.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+1,0,0,0,0,1.6094379124341003,11.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,2.3978952727983707,15.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+2,0,0,0,0,1.6094379124341003,9.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,1.791759469228055,9.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+1,0,0,0,0,2.1972245773362196,15.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,2.3978952727983707,8.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+1,0,0,0,0,2.3978952727983707,12.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,2.302585092994046,12.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+0,0,0,0,0,0.6931471805599453,12.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+0,0,0,0,0,2.3978952727983707,8.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+1,0,0,0,0,1.0986122886681098,11.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,2.3978952727983707,16.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+1,0,0,0,0,0.6931471805599453,11.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,2.1972245773362196,9.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+0,0,0,0,0,1.6094379124341003,15.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+2,0,0,0,0,1.0986122886681098,18.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+2,0,0,0,0,1.3862943611198906,9.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,2.1972245773362196,14.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,1.791759469228055,15.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+2,0,0,0,0,1.791759469228055,16.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+1,0,0,0,0,2.0794415416798357,18.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+10,5,0,0,0,10.212294906602857,3.0,1.0,39,0,0,1,ALTER TABLE payments DROP COLUMN amount
+0,0,0,0,0,1.6094379124341003,9.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+2,0,0,0,0,1.3862943611198906,11.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,1.791759469228055,12.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+1,0,0,0,0,1.6094379124341003,17.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,1.9459101490553132,10.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+2,0,0,0,0,2.1972245773362196,10.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,1.9459101490553132,16.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+0,0,0,0,0,1.9459101490553132,9.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,1.3862943611198906,8.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+1,0,0,0,0,2.0794415416798357,14.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,2.302585092994046,18.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+1,0,0,0,0,2.3978952727983707,11.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,3,3,0,10.630432112679363,4.0,1.0,43,1,5,1,SELECT * FROM users WHERE id = 1 OR 1=1; --
+1,0,0,0,0,1.791759469228055,18.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,1.9459101490553132,9.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+1,0,0,0,0,2.1972245773362196,10.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+1,0,0,0,0,2.3978952727983707,10.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,1.6094379124341003,16.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,0,0,0,2.302585092994046,17.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+2,0,0,0,0,2.0794415416798357,9.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+1,0,0,0,0,1.9459101490553132,9.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+2,0,0,0,0,1.3862943611198906,10.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,0.6931471805599453,15.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+1,0,0,0,0,2.302585092994046,8.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,1.9459101490553132,14.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,0,0,0,1.6094379124341003,15.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,2.0794415416798357,10.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,0,0,0,1.9459101490553132,16.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+0,0,0,0,0,2.3978952727983707,18.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,1.791759469228055,10.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+2,0,0,0,0,1.0986122886681098,16.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+2,0,0,0,0,1.6094379124341003,13.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,2.302585092994046,11.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+1,0,0,0,0,2.0794415416798357,12.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,1.0986122886681098,9.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,0,0,0,2.1972245773362196,9.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,2.302585092994046,16.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,0.6931471805599453,8.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,0,0,0,1.0986122886681098,13.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,3,9.21761385594268,3.0,1.0,62,1,5,1,"SELECT * FROM users UNION SELECT password, username FROM admin"
+2,0,0,0,0,2.302585092994046,12.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,2.302585092994046,15.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,0.6931471805599453,13.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,1.6094379124341003,14.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+2,0,0,0,0,1.3862943611198906,16.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+2,0,0,0,0,2.3978952727983707,10.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,2.3978952727983707,16.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+1,0,0,0,0,1.3862943611198906,18.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+2,0,0,0,0,2.1972245773362196,9.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,1.6094379124341003,15.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+1,0,0,0,0,2.1972245773362196,13.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+1,0,0,0,0,1.791759469228055,15.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,1.3862943611198906,15.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+2,0,0,0,0,2.1972245773362196,17.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+2,0,0,0,0,1.6094379124341003,9.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,1.9459101490553132,11.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+1,0,0,0,0,2.0794415416798357,8.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,1.6094379124341003,12.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+0,0,0,0,0,2.1972245773362196,11.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,0,0,0,0.6931471805599453,15.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+0,0,0,0,0,2.0794415416798357,17.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,1.791759469228055,15.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+10,5,0,0,0,10.102133472249937,4.0,1.0,17,0,0,1,DROP TABLE users;
+0,0,0,0,0,1.791759469228055,11.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+0,0,0,0,0,0.6931471805599453,10.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,0,0,0,1.6094379124341003,13.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+2,0,0,0,0,1.791759469228055,13.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+2,0,0,0,0,1.3862943611198906,15.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+1,0,0,0,0,2.3978952727983707,13.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,0.6931471805599453,12.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,0,0,0,2.302585092994046,10.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,1.791759469228055,11.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,0,0,3,10.395130356885344,2.0,1.0,62,1,5,1,"SELECT * FROM users UNION SELECT password, username FROM admin"
+1,0,0,0,0,2.302585092994046,14.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,3,3,0,10.7513495394883,4.0,1.0,43,1,5,1,SELECT * FROM users WHERE id = 1 OR 1=1; --
+0,0,0,0,0,2.3978952727983707,15.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,0,0,3,8.977398978181862,3.0,1.0,62,1,5,1,"SELECT * FROM users UNION SELECT password, username FROM admin"
+0,0,0,0,0,1.9459101490553132,14.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+0,0,0,0,0,1.9459101490553132,13.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,0,0,0,2.0794415416798357,16.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,0,0,0,2.0794415416798357,17.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+10,5,0,0,0,9.02509454366498,2.0,1.0,17,0,0,1,DROP TABLE users;
+0,0,0,0,0,2.0794415416798357,13.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+1,0,0,0,0,0.6931471805599453,15.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+1,0,0,0,0,1.6094379124341003,17.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,3,9.87980942518155,2.0,1.0,62,1,5,1,"SELECT * FROM users UNION SELECT password, username FROM admin"
+0,0,0,0,0,1.6094379124341003,12.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+0,0,0,0,0,2.302585092994046,14.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+5,0,0,0,0,10.714706615920985,4.0,1.0,22,0,9,1,DELETE FROM customers;
+0,0,0,0,0,1.0986122886681098,9.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,1.3862943611198906,9.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,1.0986122886681098,18.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+0,0,0,0,0,2.0794415416798357,15.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+1,0,0,0,0,2.0794415416798357,18.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+2,0,0,0,0,1.0986122886681098,9.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,3,3,0,10.051562670601491,3.0,1.0,43,1,5,1,SELECT * FROM users WHERE id = 1 OR 1=1; --
+0,0,0,0,0,2.3978952727983707,18.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+2,0,0,0,0,1.9459101490553132,14.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,2.1972245773362196,8.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+1,0,0,0,0,1.3862943611198906,18.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,1.3862943611198906,13.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+1,0,0,0,0,1.3862943611198906,14.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,2.0794415416798357,8.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,0,0,0,1.791759469228055,9.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+1,0,0,0,0,0.6931471805599453,8.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+1,0,0,0,0,1.9459101490553132,8.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+2,0,0,0,0,1.791759469228055,10.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,1.9459101490553132,10.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+0,0,0,0,0,2.302585092994046,16.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,0,0,0,2.1972245773362196,9.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,2.3978952727983707,11.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+2,0,0,0,0,1.791759469228055,15.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+2,0,0,0,0,1.9459101490553132,11.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+1,0,0,0,0,2.1972245773362196,10.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,1.9459101490553132,9.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,0,0,0,1.3862943611198906,8.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+1,0,0,0,0,1.9459101490553132,13.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+1,0,0,0,0,2.1972245773362196,8.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,2.302585092994046,11.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+1,0,0,0,0,2.302585092994046,18.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+2,0,0,0,0,1.791759469228055,16.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,1.3862943611198906,17.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,0,0,0,2.0794415416798357,10.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,0.6931471805599453,12.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+1,0,0,0,0,2.3978952727983707,18.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+1,0,0,0,0,1.791759469228055,13.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,1.6094379124341003,17.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,0,0,0,2.1972245773362196,17.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+1,0,0,0,0,2.302585092994046,9.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+1,0,0,0,0,0.6931471805599453,17.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,1.3862943611198906,12.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,1.791759469228055,14.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+2,0,0,0,0,2.0794415416798357,8.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+2,0,0,0,0,2.1972245773362196,13.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+1,0,0,0,0,2.302585092994046,18.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+2,0,0,0,0,2.1972245773362196,12.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+1,0,0,0,0,2.3978952727983707,10.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+10,5,0,0,0,10.797655367322513,4.0,1.0,17,0,0,1,DROP TABLE users;
+2,0,0,0,0,0.6931471805599453,18.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+2,0,0,0,0,1.0986122886681098,16.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,2.3978952727983707,18.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+0,0,0,0,0,1.791759469228055,18.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+1,0,0,0,0,1.6094379124341003,18.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+1,0,0,0,0,1.6094379124341003,11.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,1.0986122886681098,12.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+2,0,0,0,0,0.6931471805599453,16.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+2,0,0,0,0,2.3978952727983707,10.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+1,0,0,0,0,2.1972245773362196,18.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,1.3862943611198906,12.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+1,0,0,0,0,2.3978952727983707,16.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,0.6931471805599453,18.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+0,0,0,0,0,2.302585092994046,10.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+10,5,0,0,0,10.413282645487595,2.0,1.0,17,0,0,1,DROP TABLE users;
+2,0,0,0,0,1.9459101490553132,10.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+1,0,0,0,0,1.6094379124341003,11.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,1.0986122886681098,9.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+0,0,3,3,0,8.760453046315272,2.0,1.0,43,1,5,1,SELECT * FROM users WHERE id = 1 OR 1=1; --
+0,0,0,0,0,1.6094379124341003,14.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,0,0,0,2.302585092994046,14.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,0,0,0,2.3978952727983707,16.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+0,0,0,0,0,0.6931471805599453,10.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,0,0,0,1.3862943611198906,15.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+10,5,0,0,0,10.807462758687635,2.0,1.0,17,0,0,1,DROP TABLE users;
+1,0,0,0,0,1.3862943611198906,17.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+1,0,0,0,0,2.1972245773362196,16.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,1.791759469228055,11.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+0,0,0,0,3,9.98860964595295,4.0,1.0,62,1,5,1,"SELECT * FROM users UNION SELECT password, username FROM admin"
+1,0,0,0,0,1.6094379124341003,16.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,2.302585092994046,12.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+1,0,0,0,0,2.3978952727983707,10.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+2,0,0,0,0,2.0794415416798357,10.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,2.3978952727983707,9.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+2,0,0,0,0,1.0986122886681098,11.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+1,0,0,0,0,2.0794415416798357,12.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+2,0,0,0,0,0.6931471805599453,11.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,2.0794415416798357,16.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,0,0,0,2.3978952727983707,9.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,0,0,0,2.302585092994046,9.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,3,3,0,10.085017129129874,3.0,1.0,43,1,5,1,SELECT * FROM users WHERE id = 1 OR 1=1; --
+0,0,0,0,0,2.302585092994046,12.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,0,0,0,1.3862943611198906,15.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,1.3862943611198906,17.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,0,0,0,2.3978952727983707,10.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,1.6094379124341003,9.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+1,0,0,0,0,1.0986122886681098,10.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,1.0986122886681098,18.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+2,0,0,0,0,2.0794415416798357,16.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+2,0,0,0,0,2.3978952727983707,18.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+1,0,0,0,0,1.6094379124341003,10.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+2,0,0,0,0,1.791759469228055,17.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+2,0,0,0,0,1.0986122886681098,16.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,2.302585092994046,12.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+0,0,0,0,0,1.6094379124341003,17.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+2,0,0,0,0,1.9459101490553132,10.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,1.6094379124341003,14.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,1.3862943611198906,9.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+1,0,0,0,0,2.1972245773362196,11.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,1.0986122886681098,10.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,2.1972245773362196,12.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,0,0,0,2.1972245773362196,11.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,1.0986122886681098,13.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+0,0,0,0,0,1.9459101490553132,13.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+10,5,0,0,0,10.168617220517397,3.0,1.0,39,0,0,1,ALTER TABLE payments DROP COLUMN amount
+2,0,0,0,0,0.6931471805599453,8.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,1.6094379124341003,18.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+0,0,0,0,0,1.3862943611198906,9.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+0,0,0,0,0,1.6094379124341003,11.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,1.6094379124341003,9.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,1.6094379124341003,18.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+1,0,0,0,0,1.791759469228055,18.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,2.0794415416798357,14.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,0,0,0,1.791759469228055,17.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,1.6094379124341003,9.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+2,0,0,0,0,1.3862943611198906,10.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,2.0794415416798357,16.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+1,0,0,0,0,2.3978952727983707,13.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,1.3862943611198906,10.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+1,0,0,0,0,1.0986122886681098,14.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,3,3,0,10.00654040759221,2.0,1.0,43,1,5,1,SELECT * FROM users WHERE id = 1 OR 1=1; --
+0,0,0,0,0,1.6094379124341003,18.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,0,0,0,1.9459101490553132,17.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+1,0,0,0,0,2.0794415416798357,9.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,1.6094379124341003,17.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+1,0,0,0,0,1.0986122886681098,15.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+1,0,0,0,0,2.0794415416798357,14.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+2,0,0,0,0,1.0986122886681098,11.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,1.3862943611198906,18.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,2.0794415416798357,18.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+2,0,0,0,0,1.0986122886681098,14.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,0.6931471805599453,10.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+5,0,0,0,0,10.748282282705214,3.0,1.0,22,0,9,1,DELETE FROM customers;
+0,0,0,0,0,2.302585092994046,9.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,0.6931471805599453,17.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+2,0,0,0,0,2.1972245773362196,16.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,3,8.36287583103188,4.0,1.0,62,1,5,1,"SELECT * FROM users UNION SELECT password, username FROM admin"
+0,0,0,0,0,1.9459101490553132,16.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+0,0,0,0,0,2.0794415416798357,13.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,2.1972245773362196,14.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+1,0,0,0,0,2.1972245773362196,15.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,1.9459101490553132,8.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+1,0,0,0,0,2.1972245773362196,16.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,1.791759469228055,8.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+10,5,0,0,0,10.785248949513049,3.0,1.0,39,0,0,1,ALTER TABLE payments DROP COLUMN amount
+2,0,0,0,0,1.0986122886681098,9.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+2,0,0,0,0,2.1972245773362196,16.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,1.9459101490553132,12.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+2,0,0,0,0,1.9459101490553132,15.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+1,0,0,0,0,0.6931471805599453,9.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,1.9459101490553132,18.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,3,3,0,10.486373338838536,2.0,1.0,43,1,5,1,SELECT * FROM users WHERE id = 1 OR 1=1; --
+2,0,0,0,0,2.3978952727983707,8.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+1,0,0,0,0,2.0794415416798357,16.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+2,0,0,0,0,2.1972245773362196,12.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,1.9459101490553132,12.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+1,0,0,0,0,1.9459101490553132,10.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,2.0794415416798357,16.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+0,0,0,0,0,1.791759469228055,10.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+0,0,0,0,0,1.791759469228055,12.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+0,0,0,0,0,1.9459101490553132,10.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+1,0,0,0,0,1.0986122886681098,18.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,1.0986122886681098,8.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,0,0,0,1.9459101490553132,12.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+2,0,0,0,0,2.0794415416798357,10.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,1.3862943611198906,15.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,2.1972245773362196,14.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+0,0,0,0,0,1.6094379124341003,11.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+1,0,0,0,0,2.1972245773362196,14.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,3,10.475257746929474,3.0,1.0,62,1,5,1,"SELECT * FROM users UNION SELECT password, username FROM admin"
+0,0,0,0,0,2.0794415416798357,14.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,3,3,0,9.248599084093273,4.0,1.0,43,1,5,1,SELECT * FROM users WHERE id = 1 OR 1=1; --
+0,0,0,0,3,9.68096880599076,3.0,1.0,62,1,5,1,"SELECT * FROM users UNION SELECT password, username FROM admin"
+2,0,0,0,0,0.6931471805599453,12.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,0.6931471805599453,18.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,0,0,0,1.3862943611198906,9.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+2,0,0,0,0,1.9459101490553132,15.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,1.0986122886681098,16.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,0,0,0,2.1972245773362196,18.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+2,0,0,0,0,1.9459101490553132,8.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,1.6094379124341003,17.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+0,0,0,0,0,2.0794415416798357,11.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+0,0,0,0,0,1.6094379124341003,10.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,1.0986122886681098,18.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+0,0,0,0,0,2.1972245773362196,11.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+1,0,0,0,0,1.9459101490553132,8.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,1.791759469228055,8.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+0,0,0,0,0,2.0794415416798357,18.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+0,0,0,0,0,2.3978952727983707,17.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,0,0,0,0.6931471805599453,14.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,3,3,0,10.777768084253218,3.0,1.0,43,1,5,1,SELECT * FROM users WHERE id = 1 OR 1=1; --
+0,0,0,0,0,2.0794415416798357,13.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+10,5,0,0,0,10.539032102959615,4.0,1.0,39,0,0,1,ALTER TABLE payments DROP COLUMN amount
+0,0,0,0,0,1.791759469228055,13.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+10,5,0,0,0,9.379154445411636,4.0,1.0,39,0,0,1,ALTER TABLE payments DROP COLUMN amount
+0,0,0,0,3,8.523175263093785,3.0,1.0,62,1,5,1,"SELECT * FROM users UNION SELECT password, username FROM admin"
+0,0,0,0,0,1.791759469228055,14.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+0,0,0,0,0,1.0986122886681098,13.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,0,0,0,1.6094379124341003,16.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,2.1972245773362196,16.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+0,0,0,0,0,1.6094379124341003,17.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,2.1972245773362196,13.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+2,0,0,0,0,1.6094379124341003,14.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,2.302585092994046,10.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+1,0,0,0,0,2.3978952727983707,14.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+2,0,0,0,0,1.3862943611198906,17.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,1.6094379124341003,17.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+2,0,0,0,0,1.3862943611198906,9.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,2.302585092994046,8.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,1.0986122886681098,15.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,0,0,0,1.3862943611198906,9.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+0,0,0,0,0,2.302585092994046,10.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+1,0,0,0,0,1.9459101490553132,8.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+2,0,0,0,0,1.9459101490553132,13.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,1.6094379124341003,17.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+0,0,0,0,0,0.6931471805599453,10.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+1,0,0,0,0,2.1972245773362196,11.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,1.3862943611198906,18.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+2,0,0,0,0,2.1972245773362196,17.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,1.3862943611198906,10.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,0.6931471805599453,16.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,0.6931471805599453,10.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+0,0,0,0,3,10.668001451444411,2.0,1.0,62,1,5,1,"SELECT * FROM users UNION SELECT password, username FROM admin"
+2,0,0,0,0,1.6094379124341003,16.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,2.3978952727983707,11.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,1.6094379124341003,15.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,0.6931471805599453,9.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,2.1972245773362196,14.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,3,10.415352635876781,2.0,1.0,62,1,5,1,"SELECT * FROM users UNION SELECT password, username FROM admin"
+2,0,0,0,0,1.791759469228055,16.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,1.3862943611198906,11.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,0.6931471805599453,9.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+1,0,0,0,0,1.6094379124341003,9.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,1.6094379124341003,11.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+10,5,0,0,0,8.960852845322371,4.0,1.0,17,0,0,1,DROP TABLE users;
+0,0,0,0,0,1.6094379124341003,12.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,1.3862943611198906,11.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+0,0,0,0,0,1.791759469228055,14.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+0,0,0,0,3,10.305881282119806,2.0,1.0,62,1,5,1,"SELECT * FROM users UNION SELECT password, username FROM admin"
+0,0,0,0,0,1.6094379124341003,18.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+2,0,0,0,0,2.302585092994046,12.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,2.302585092994046,13.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,0,0,0,2.302585092994046,16.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,1.9459101490553132,15.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+10,5,0,0,0,10.794583545775726,4.0,1.0,39,0,0,1,ALTER TABLE payments DROP COLUMN amount
+2,0,0,0,0,2.0794415416798357,15.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,2.3978952727983707,14.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+0,0,0,0,0,2.1972245773362196,17.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+5,0,0,0,0,9.962463757636426,4.0,1.0,22,0,9,1,DELETE FROM customers;
+0,0,0,0,0,0.6931471805599453,18.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+5,0,0,0,0,10.803872454726505,3.0,1.0,22,0,9,1,DELETE FROM customers;
+0,0,0,0,0,1.6094379124341003,17.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+0,0,0,0,0,2.3978952727983707,10.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+1,0,0,0,0,0.6931471805599453,12.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+2,0,0,0,0,1.6094379124341003,9.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,1.6094379124341003,16.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+0,0,0,0,0,1.3862943611198906,18.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+2,0,0,0,0,1.791759469228055,16.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,1.791759469228055,8.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+5,0,0,0,0,10.814142432791654,2.0,1.0,22,0,9,1,DELETE FROM customers;
+0,0,0,0,0,0.6931471805599453,14.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+0,0,0,0,0,1.0986122886681098,18.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,1.9459101490553132,10.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+0,0,0,0,0,1.0986122886681098,13.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+0,0,3,3,0,10.62924712082355,4.0,1.0,43,1,5,1,SELECT * FROM users WHERE id = 1 OR 1=1; --
+0,0,0,0,0,1.0986122886681098,18.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,0,0,0,1.9459101490553132,13.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+5,0,0,0,0,8.669914278433902,4.0,1.0,22,0,9,1,DELETE FROM customers;
+0,0,0,0,0,1.3862943611198906,15.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,0,0,0,1.3862943611198906,14.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+1,0,0,0,0,2.302585092994046,16.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+1,0,0,0,0,0.6931471805599453,12.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+2,0,0,0,0,0.6931471805599453,16.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,2.1972245773362196,18.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,2.0794415416798357,17.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+2,0,0,0,0,1.6094379124341003,13.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,1.6094379124341003,10.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,0,0,0,1.791759469228055,17.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+10,5,0,0,0,9.128153700988236,2.0,1.0,39,0,0,1,ALTER TABLE payments DROP COLUMN amount
+1,0,0,0,0,1.0986122886681098,11.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,1.791759469228055,15.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,0,0,0,1.9459101490553132,16.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+2,0,0,0,0,1.0986122886681098,11.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,1.6094379124341003,10.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+0,0,0,0,0,1.791759469228055,17.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,0,0,0,0.6931471805599453,13.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,1.9459101490553132,15.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,3,3,0,10.729787929213312,3.0,1.0,43,1,5,1,SELECT * FROM users WHERE id = 1 OR 1=1; --
+0,0,0,0,3,8.725832056527565,3.0,1.0,62,1,5,1,"SELECT * FROM users UNION SELECT password, username FROM admin"
+1,0,0,0,0,1.9459101490553132,18.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+1,0,0,0,0,2.1972245773362196,15.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+1,0,0,0,0,2.1972245773362196,13.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+10,5,0,0,0,10.652353221852417,3.0,1.0,17,0,0,1,DROP TABLE users;
+0,0,0,0,0,2.1972245773362196,15.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+1,0,0,0,0,2.3978952727983707,15.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,2.1972245773362196,8.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+1,0,0,0,0,1.791759469228055,15.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+10,5,0,0,0,10.800575077425847,2.0,1.0,39,0,0,1,ALTER TABLE payments DROP COLUMN amount
+1,0,0,0,0,2.302585092994046,17.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+2,0,0,0,0,2.1972245773362196,12.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,1.3862943611198906,13.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,2.1972245773362196,15.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,1.6094379124341003,13.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,0,0,0,0.6931471805599453,15.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+0,0,0,0,0,0.6931471805599453,9.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,2.302585092994046,13.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,0,0,0,1.3862943611198906,12.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,3,3,0,10.258501117148194,2.0,1.0,43,1,5,1,SELECT * FROM users WHERE id = 1 OR 1=1; --
+2,0,0,0,0,2.3978952727983707,12.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,1.9459101490553132,12.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+1,0,0,0,0,1.791759469228055,12.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+2,0,0,0,0,1.3862943611198906,15.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+1,0,0,0,0,1.3862943611198906,9.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,0.6931471805599453,11.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,0,0,0,1.9459101490553132,11.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+2,0,0,0,0,1.9459101490553132,16.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,1.791759469228055,15.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+2,0,0,0,0,1.9459101490553132,9.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+2,0,0,0,0,2.1972245773362196,15.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+2,0,0,0,0,2.3978952727983707,11.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,2.302585092994046,15.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,0,0,0,2.3978952727983707,17.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+1,0,0,0,0,1.0986122886681098,12.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,1.791759469228055,8.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+0,0,0,0,0,1.3862943611198906,15.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+0,0,0,0,0,1.791759469228055,11.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+1,0,0,0,0,2.3978952727983707,15.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,2.3978952727983707,8.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+1,0,0,0,0,1.791759469228055,8.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,2.0794415416798357,12.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,0,0,0,1.6094379124341003,18.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,1.0986122886681098,13.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,1.6094379124341003,17.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+1,0,0,0,0,2.1972245773362196,8.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+1,0,0,0,0,1.6094379124341003,12.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,2.302585092994046,9.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,1.9459101490553132,15.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+10,5,0,0,0,8.097426298597213,3.0,1.0,39,0,0,1,ALTER TABLE payments DROP COLUMN amount
+5,0,0,0,0,10.497918760156915,3.0,1.0,22,0,9,1,DELETE FROM customers;
+0,0,0,0,0,2.1972245773362196,12.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,1.6094379124341003,14.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+2,0,0,0,0,0.6931471805599453,15.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+2,0,0,0,0,1.9459101490553132,11.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+2,0,0,0,0,1.9459101490553132,18.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,2.1972245773362196,17.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+0,0,0,0,0,1.9459101490553132,12.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,1.0986122886681098,13.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,0,0,0,1.0986122886681098,14.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+2,0,0,0,0,2.302585092994046,8.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+1,0,0,0,0,1.9459101490553132,10.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,2.0794415416798357,17.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+2,0,0,0,0,2.302585092994046,17.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,2.0794415416798357,17.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+1,0,0,0,0,1.0986122886681098,13.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,1.6094379124341003,16.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,0,0,0,0.6931471805599453,9.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+2,0,0,0,0,2.0794415416798357,9.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+1,0,0,0,0,1.0986122886681098,10.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+2,0,0,0,0,2.1972245773362196,10.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,1.9459101490553132,13.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,0,0,0,1.9459101490553132,16.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+1,0,0,0,0,0.6931471805599453,18.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+5,0,0,0,0,8.15162164696975,2.0,1.0,22,0,9,1,DELETE FROM customers;
+0,0,0,0,0,1.3862943611198906,15.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+2,0,0,0,0,1.791759469228055,17.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,2.1972245773362196,13.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,0,0,0,2.0794415416798357,15.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+2,0,0,0,0,1.9459101490553132,13.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+10,5,0,0,0,7.845416036592485,3.0,1.0,17,0,0,1,DROP TABLE users;
+0,0,0,0,0,2.1972245773362196,18.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,2.3978952727983707,10.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+0,0,0,0,0,2.1972245773362196,18.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,1.9459101490553132,8.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,0,0,0,2.1972245773362196,13.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,0,0,0,2.0794415416798357,11.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,0,0,0,1.3862943611198906,18.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,1.0986122886681098,8.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+0,0,0,0,0,0.6931471805599453,14.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+0,0,0,0,0,0.6931471805599453,18.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+0,0,0,0,0,1.6094379124341003,16.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+1,0,0,0,0,1.9459101490553132,15.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,1.6094379124341003,13.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+2,0,0,0,0,2.3978952727983707,8.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+10,5,0,0,0,10.398458146978019,4.0,1.0,39,0,0,1,ALTER TABLE payments DROP COLUMN amount
+5,0,0,0,0,10.572137101495674,3.0,1.0,22,0,9,1,DELETE FROM customers;
+1,0,0,0,0,0.6931471805599453,16.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,1.791759469228055,17.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,1.3862943611198906,14.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+1,0,0,0,0,2.0794415416798357,8.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,1.6094379124341003,10.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+1,0,0,0,0,1.9459101490553132,13.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,1.0986122886681098,17.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,1.791759469228055,10.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+2,0,0,0,0,0.6931471805599453,8.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+10,5,0,0,0,9.40738632416852,2.0,1.0,39,0,0,1,ALTER TABLE payments DROP COLUMN amount
+1,0,0,0,0,2.302585092994046,13.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,2.3978952727983707,11.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,0,0,0,2.302585092994046,10.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+0,0,0,0,0,2.1972245773362196,9.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+2,0,0,0,0,1.791759469228055,9.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,1.0986122886681098,15.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+1,0,0,0,0,1.0986122886681098,9.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+1,0,0,0,0,1.0986122886681098,11.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+2,0,0,0,0,2.0794415416798357,9.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,2.3978952727983707,8.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+2,0,0,0,0,1.3862943611198906,15.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,1.0986122886681098,14.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,0,0,0,1.0986122886681098,13.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+10,5,0,0,0,10.092039659080719,2.0,1.0,39,0,0,1,ALTER TABLE payments DROP COLUMN amount
+0,0,0,0,0,2.3978952727983707,9.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+0,0,0,0,0,1.3862943611198906,12.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,0.6931471805599453,9.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,0.6931471805599453,14.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+0,0,0,0,0,2.3978952727983707,13.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+2,0,0,0,0,2.0794415416798357,16.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,1.791759469228055,9.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+0,0,0,0,0,2.0794415416798357,16.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+1,0,0,0,0,1.0986122886681098,18.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,1.0986122886681098,8.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+2,0,0,0,0,2.3978952727983707,11.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,1.6094379124341003,13.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,1.791759469228055,11.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+1,0,0,0,0,1.6094379124341003,15.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,1.791759469228055,12.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,3,9.205026277152413,3.0,1.0,62,1,5,1,"SELECT * FROM users UNION SELECT password, username FROM admin"
+0,0,0,0,0,1.6094379124341003,8.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,0,0,0,2.3978952727983707,8.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,3,3,0,10.375645110411204,2.0,1.0,43,1,5,1,SELECT * FROM users WHERE id = 1 OR 1=1; --
+2,0,0,0,0,2.0794415416798357,18.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,1.6094379124341003,11.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+2,0,0,0,0,1.3862943611198906,13.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+2,0,0,0,0,1.3862943611198906,15.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+1,0,0,0,0,2.1972245773362196,9.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+10,5,0,0,0,10.771281077324733,3.0,1.0,17,0,0,1,DROP TABLE users;
+10,5,0,0,0,10.66550759738245,2.0,1.0,39,0,0,1,ALTER TABLE payments DROP COLUMN amount
+0,0,0,0,0,2.302585092994046,9.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+2,0,0,0,0,1.0986122886681098,8.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,0.6931471805599453,18.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,0,0,0,2.3978952727983707,15.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+2,0,0,0,0,1.6094379124341003,12.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,2.0794415416798357,10.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+1,0,0,0,0,1.791759469228055,14.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+1,0,0,0,0,1.0986122886681098,11.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,2.0794415416798357,13.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+1,0,0,0,0,1.0986122886681098,10.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+1,0,0,0,0,1.3862943611198906,14.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,2.1972245773362196,14.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+1,0,0,0,0,1.791759469228055,16.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,2.3978952727983707,9.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+1,0,0,0,0,1.9459101490553132,17.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+2,0,0,0,0,2.0794415416798357,14.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,3,3,0,10.803567598362301,4.0,1.0,43,1,5,1,SELECT * FROM users WHERE id = 1 OR 1=1; --
+0,0,0,0,3,10.37195875822042,4.0,1.0,62,1,5,1,"SELECT * FROM users UNION SELECT password, username FROM admin"
+0,0,0,0,0,2.302585092994046,8.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+0,0,0,0,0,1.6094379124341003,14.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+0,0,0,0,0,1.0986122886681098,13.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,0,0,0,1.6094379124341003,14.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+1,0,0,0,0,0.6931471805599453,18.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+1,0,0,0,0,1.791759469228055,18.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+2,0,0,0,0,1.791759469228055,15.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+1,0,0,0,0,2.3978952727983707,9.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+2,0,0,0,0,1.6094379124341003,14.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+2,0,0,0,0,1.6094379124341003,15.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+1,0,0,0,0,1.9459101490553132,13.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+1,0,0,0,0,1.0986122886681098,15.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+1,0,0,0,0,2.0794415416798357,10.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,2.1972245773362196,11.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,1.3862943611198906,14.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,2.0794415416798357,17.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,1.6094379124341003,11.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+1,0,0,0,0,1.3862943611198906,9.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,2.0794415416798357,12.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+2,0,0,0,0,2.3978952727983707,12.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+2,0,0,0,0,2.302585092994046,10.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+2,0,0,0,0,2.3978952727983707,8.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+2,0,0,0,0,2.302585092994046,18.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,2.1972245773362196,14.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+2,0,0,0,0,2.302585092994046,14.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+2,0,0,0,0,1.9459101490553132,17.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+2,0,0,0,0,1.9459101490553132,14.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,1.791759469228055,9.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,0,0,0,2.302585092994046,8.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+2,0,0,0,0,1.791759469228055,11.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,1.3862943611198906,11.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,0.6931471805599453,10.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,1.0986122886681098,9.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+2,0,0,0,0,1.0986122886681098,11.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+2,0,0,0,0,0.6931471805599453,11.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,2.3978952727983707,9.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+2,0,0,0,0,2.1972245773362196,12.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+1,0,0,0,0,1.9459101490553132,9.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+1,0,0,0,0,2.0794415416798357,18.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,2.0794415416798357,15.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+2,0,0,0,0,2.3978952727983707,12.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,1.3862943611198906,8.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+0,0,0,0,0,1.3862943611198906,11.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+1,0,0,0,0,1.0986122886681098,13.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,2.0794415416798357,12.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,0,0,3,9.987185111557695,4.0,1.0,62,1,5,1,"SELECT * FROM users UNION SELECT password, username FROM admin"
+0,0,0,0,3,10.749634751165935,4.0,1.0,62,1,5,1,"SELECT * FROM users UNION SELECT password, username FROM admin"
+0,0,0,0,0,1.6094379124341003,14.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,2.1972245773362196,14.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,2.1972245773362196,15.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,0,0,0,1.6094379124341003,9.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+0,0,0,0,0,2.302585092994046,17.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+0,0,0,0,0,1.6094379124341003,17.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,0,0,0,2.3978952727983707,9.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+2,0,0,0,0,2.3978952727983707,11.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,2.302585092994046,16.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+2,0,0,0,0,1.0986122886681098,15.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,2.0794415416798357,18.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,0,0,3,10.705242470817005,3.0,1.0,62,1,5,1,"SELECT * FROM users UNION SELECT password, username FROM admin"
+0,0,0,0,0,1.6094379124341003,16.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,1.0986122886681098,9.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+0,0,0,0,0,1.0986122886681098,9.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+1,0,0,0,0,1.9459101490553132,13.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,2.3978952727983707,18.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,0,0,0,1.791759469228055,15.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+1,0,0,0,0,2.0794415416798357,18.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,2.302585092994046,13.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+1,0,0,0,0,1.791759469228055,12.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,2.3978952727983707,8.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,1.791759469228055,9.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+2,0,0,0,0,2.3978952727983707,10.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+2,0,0,0,0,2.3978952727983707,12.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+2,0,0,0,0,2.1972245773362196,14.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+2,0,0,0,0,1.6094379124341003,17.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,0.6931471805599453,11.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+0,0,0,0,0,2.0794415416798357,8.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,2.0794415416798357,12.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+1,0,0,0,0,0.6931471805599453,17.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,2.1972245773362196,8.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+1,0,0,0,0,2.0794415416798357,17.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,1.6094379124341003,9.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+2,0,0,0,0,2.3978952727983707,15.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,1.9459101490553132,18.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+1,0,0,0,0,1.3862943611198906,17.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+1,0,0,0,0,0.6931471805599453,11.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,1.0986122886681098,9.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+1,0,0,0,0,0.6931471805599453,14.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+2,0,0,0,0,2.0794415416798357,17.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,1.9459101490553132,13.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,0,0,0,1.0986122886681098,11.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,3,3,0,8.722905701000768,3.0,1.0,43,1,5,1,SELECT * FROM users WHERE id = 1 OR 1=1; --
+0,0,0,0,0,1.0986122886681098,10.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+2,0,0,0,0,2.3978952727983707,8.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,2.0794415416798357,17.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,1.6094379124341003,15.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+1,0,0,0,0,1.6094379124341003,8.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+2,0,0,0,0,1.3862943611198906,15.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,1.791759469228055,12.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+1,0,0,0,0,2.3978952727983707,11.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,1.0986122886681098,9.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,2.3978952727983707,8.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+1,0,0,0,0,1.6094379124341003,9.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+1,0,0,0,0,2.302585092994046,15.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+1,0,0,0,0,2.3978952727983707,9.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+2,0,0,0,0,1.791759469228055,13.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,2.3978952727983707,18.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+0,0,0,0,0,1.0986122886681098,15.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+2,0,0,0,0,2.302585092994046,14.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+1,0,0,0,0,1.9459101490553132,10.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+2,0,0,0,0,2.1972245773362196,18.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+2,0,0,0,0,1.6094379124341003,12.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,1.9459101490553132,16.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+10,5,0,0,0,10.597459392970629,2.0,1.0,17,0,0,1,DROP TABLE users;
+0,0,0,0,0,1.0986122886681098,18.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+2,0,0,0,0,1.9459101490553132,17.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+2,0,0,0,0,1.6094379124341003,8.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,2.1972245773362196,10.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,3,3,0,9.841665338892785,2.0,1.0,43,1,5,1,SELECT * FROM users WHERE id = 1 OR 1=1; --
+0,0,0,0,0,1.0986122886681098,12.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+1,0,0,0,0,1.0986122886681098,10.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+1,0,0,0,0,1.3862943611198906,15.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,1.9459101490553132,11.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,1.791759469228055,11.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,0,0,0,1.6094379124341003,10.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,0,0,0,1.9459101490553132,18.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,1.9459101490553132,14.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+2,0,0,0,0,2.302585092994046,9.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,1.9459101490553132,13.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,1.3862943611198906,10.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,0,0,0,1.9459101490553132,15.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,1.3862943611198906,14.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+0,0,0,0,0,2.1972245773362196,18.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+0,0,0,0,0,1.791759469228055,14.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,1.791759469228055,18.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+0,0,0,0,0,1.791759469228055,14.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+0,0,0,0,0,2.302585092994046,10.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+2,0,0,0,0,1.791759469228055,13.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,2.3978952727983707,9.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+0,0,0,0,0,1.9459101490553132,17.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,2.1972245773362196,18.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,0,0,0,1.3862943611198906,9.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,1.791759469228055,17.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,0,0,0,1.6094379124341003,8.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+1,0,0,0,0,1.3862943611198906,16.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+1,0,0,0,0,2.302585092994046,17.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+2,0,0,0,0,1.3862943611198906,12.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,1.0986122886681098,10.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+2,0,0,0,0,1.9459101490553132,13.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+2,0,0,0,0,2.3978952727983707,15.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,1.6094379124341003,16.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+1,0,0,0,0,2.0794415416798357,12.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,2.1972245773362196,16.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,1.0986122886681098,9.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+1,0,0,0,0,1.3862943611198906,8.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,3,3,0,10.781619407309512,3.0,1.0,43,1,5,1,SELECT * FROM users WHERE id = 1 OR 1=1; --
+2,0,0,0,0,2.1972245773362196,9.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+2,0,0,0,0,2.302585092994046,11.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,2.302585092994046,16.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+2,0,0,0,0,1.3862943611198906,11.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,1.3862943611198906,16.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,0,0,0,2.302585092994046,16.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,1.0986122886681098,16.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+2,0,0,0,0,2.3978952727983707,17.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+1,0,0,0,0,2.3978952727983707,15.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+1,0,0,0,0,2.3978952727983707,14.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,1.9459101490553132,11.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+1,0,0,0,0,2.3978952727983707,10.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,1.9459101490553132,17.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+0,0,0,0,0,1.0986122886681098,14.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+10,5,0,0,0,10.791995903397831,2.0,1.0,17,0,0,1,DROP TABLE users;
+0,0,0,0,0,1.9459101490553132,16.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,0,0,0,0.6931471805599453,15.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+10,5,0,0,0,10.75879609867549,4.0,1.0,39,0,0,1,ALTER TABLE payments DROP COLUMN amount
+0,0,0,0,0,2.0794415416798357,11.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,0,0,0,1.9459101490553132,12.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+0,0,0,0,3,9.1345386585599,2.0,1.0,62,1,5,1,"SELECT * FROM users UNION SELECT password, username FROM admin"
+0,0,0,0,0,1.791759469228055,13.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+1,0,0,0,0,2.0794415416798357,16.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,2.302585092994046,11.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,0,0,0,2.302585092994046,14.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+1,0,0,0,0,2.0794415416798357,18.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,1.791759469228055,16.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+10,5,0,0,0,10.456682772668628,4.0,1.0,39,0,0,1,ALTER TABLE payments DROP COLUMN amount
+0,0,0,0,0,1.791759469228055,9.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+0,0,0,0,0,0.6931471805599453,13.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+10,5,0,0,0,10.608093826184968,3.0,1.0,17,0,0,1,DROP TABLE users;
+0,0,0,0,0,1.791759469228055,9.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,0,0,0,2.3978952727983707,15.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,1.0986122886681098,17.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,0,0,0,1.6094379124341003,9.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+2,0,0,0,0,2.302585092994046,18.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,2.3978952727983707,15.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+0,0,0,0,0,2.302585092994046,12.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+2,0,0,0,0,1.0986122886681098,12.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,1.0986122886681098,18.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+1,0,0,0,0,1.6094379124341003,18.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+10,5,0,0,0,9.767839635939845,3.0,1.0,39,0,0,1,ALTER TABLE payments DROP COLUMN amount
+0,0,0,0,0,1.3862943611198906,16.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+1,0,0,0,0,1.9459101490553132,10.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,3,3,0,10.55134966888039,4.0,1.0,43,1,5,1,SELECT * FROM users WHERE id = 1 OR 1=1; --
+0,0,0,0,0,2.1972245773362196,12.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+1,0,0,0,0,2.1972245773362196,15.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+10,5,0,0,0,10.78919535793249,4.0,1.0,17,0,0,1,DROP TABLE users;
+5,0,0,0,0,10.31071776859096,4.0,1.0,22,0,9,1,DELETE FROM customers;
+2,0,0,0,0,1.3862943611198906,13.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+1,0,0,0,0,1.0986122886681098,18.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+1,0,0,0,0,1.3862943611198906,11.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+1,0,0,0,0,1.6094379124341003,8.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+1,0,0,0,0,1.0986122886681098,13.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,0.6931471805599453,11.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+2,0,0,0,0,1.791759469228055,15.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+10,5,0,0,0,8.508757712595136,3.0,1.0,17,0,0,1,DROP TABLE users;
+2,0,0,0,0,2.3978952727983707,10.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+1,0,0,0,0,1.6094379124341003,16.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+5,0,0,0,0,7.471932078245122,4.0,1.0,22,0,9,1,DELETE FROM customers;
+2,0,0,0,0,2.302585092994046,12.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+1,0,0,0,0,0.6931471805599453,8.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,1.6094379124341003,8.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,1.0986122886681098,8.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+2,0,0,0,0,1.9459101490553132,11.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,1.791759469228055,17.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+1,0,0,0,0,1.3862943611198906,14.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+2,0,0,0,0,2.302585092994046,16.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,1.791759469228055,9.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+1,0,0,0,0,2.3978952727983707,16.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,1.9459101490553132,13.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+1,0,0,0,0,2.0794415416798357,11.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,1.9459101490553132,14.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,0,0,0,2.0794415416798357,10.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,0,0,0,2.3978952727983707,13.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+0,0,0,0,0,2.302585092994046,14.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+1,0,0,0,0,2.3978952727983707,15.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+1,0,0,0,0,1.0986122886681098,11.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+1,0,0,0,0,1.0986122886681098,10.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,0.6931471805599453,12.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+1,0,0,0,0,1.9459101490553132,17.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,1.6094379124341003,15.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+0,0,0,0,0,1.9459101490553132,10.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,0,0,0,1.3862943611198906,12.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+0,0,0,0,0,2.0794415416798357,16.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+1,0,0,0,0,1.9459101490553132,8.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+1,0,0,0,0,2.3978952727983707,12.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+1,0,0,0,0,1.791759469228055,17.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,1.0986122886681098,14.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+0,0,3,3,0,10.320321127381453,4.0,1.0,43,1,5,1,SELECT * FROM users WHERE id = 1 OR 1=1; --
+0,0,0,0,0,1.791759469228055,10.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+2,0,0,0,0,1.791759469228055,11.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,2.302585092994046,9.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+1,0,0,0,0,1.0986122886681098,9.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+1,0,0,0,0,0.6931471805599453,18.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,3,10.457085268145988,2.0,1.0,62,1,5,1,"SELECT * FROM users UNION SELECT password, username FROM admin"
+0,0,0,0,0,2.3978952727983707,17.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+2,0,0,0,0,2.0794415416798357,16.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,2.1972245773362196,10.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+0,0,0,0,0,2.302585092994046,8.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+2,0,0,0,0,0.6931471805599453,17.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+1,0,0,0,0,2.3978952727983707,15.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+2,0,0,0,0,2.3978952727983707,17.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,3,9.06681636189014,3.0,1.0,62,1,5,1,"SELECT * FROM users UNION SELECT password, username FROM admin"
+0,0,0,0,0,1.6094379124341003,15.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+1,0,0,0,0,1.6094379124341003,8.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,2.0794415416798357,10.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+2,0,0,0,0,1.3862943611198906,11.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+1,0,0,0,0,1.9459101490553132,10.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+1,0,0,0,0,1.791759469228055,12.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,1.9459101490553132,10.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,2.302585092994046,10.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+2,0,0,0,0,1.6094379124341003,18.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+2,0,0,0,0,2.3978952727983707,12.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,1.9459101490553132,17.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+0,0,0,0,0,2.0794415416798357,12.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+1,0,0,0,0,2.3978952727983707,18.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+1,0,0,0,0,1.9459101490553132,17.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,0.6931471805599453,18.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,0,0,0,2.3978952727983707,14.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+10,5,0,0,0,9.506436943028982,4.0,1.0,17,0,0,1,DROP TABLE users;
+0,0,0,0,0,2.1972245773362196,10.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+2,0,0,0,0,2.1972245773362196,16.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,1.9459101490553132,16.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,2.302585092994046,10.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+2,0,0,0,0,1.0986122886681098,12.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+1,0,0,0,0,1.3862943611198906,10.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+10,5,0,0,0,10.112085832408303,3.0,1.0,39,0,0,1,ALTER TABLE payments DROP COLUMN amount
+10,5,0,0,0,10.666090830610614,4.0,1.0,39,0,0,1,ALTER TABLE payments DROP COLUMN amount
+0,0,0,0,0,1.0986122886681098,11.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,0,0,0,2.3978952727983707,9.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+1,0,0,0,0,1.791759469228055,17.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,2.302585092994046,17.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+1,0,0,0,0,0.6931471805599453,16.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+2,0,0,0,0,1.0986122886681098,12.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,1.3862943611198906,14.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+2,0,0,0,0,2.3978952727983707,12.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+1,0,0,0,0,2.3978952727983707,10.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+2,0,0,0,0,1.0986122886681098,14.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+1,0,0,0,0,1.791759469228055,16.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+1,0,0,0,0,2.1972245773362196,10.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+2,0,0,0,0,1.791759469228055,8.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,2.0794415416798357,12.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+1,0,0,0,0,1.9459101490553132,9.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+1,0,0,0,0,1.0986122886681098,9.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,2.1972245773362196,16.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,1.0986122886681098,16.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,0,0,0,2.1972245773362196,14.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+2,0,0,0,0,2.302585092994046,15.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+10,5,0,0,0,10.18986877925486,4.0,1.0,39,0,0,1,ALTER TABLE payments DROP COLUMN amount
+0,0,0,0,0,2.302585092994046,16.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,2.0794415416798357,16.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,0,0,0,2.1972245773362196,13.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+1,0,0,0,0,1.3862943611198906,14.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,2.1972245773362196,10.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+0,0,0,0,0,1.0986122886681098,18.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,1.791759469228055,17.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+1,0,0,0,0,1.9459101490553132,15.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+2,0,0,0,0,2.1972245773362196,14.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+10,5,0,0,0,8.571681376700306,4.0,1.0,17,0,0,1,DROP TABLE users;
+1,0,0,0,0,2.302585092994046,12.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+1,0,0,0,0,2.0794415416798357,14.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,2.0794415416798357,13.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,2.302585092994046,18.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+1,0,0,0,0,1.9459101490553132,14.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+2,0,0,0,0,1.791759469228055,14.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,3,3,0,10.252664456297504,2.0,1.0,43,1,5,1,SELECT * FROM users WHERE id = 1 OR 1=1; --
+2,0,0,0,0,1.6094379124341003,14.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,1.3862943611198906,18.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+0,0,0,0,0,1.6094379124341003,15.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+2,0,0,0,0,1.791759469228055,16.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,2.302585092994046,16.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+2,0,0,0,0,2.3978952727983707,13.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+1,0,0,0,0,1.0986122886681098,13.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,1.791759469228055,11.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,3,10.657659274933835,3.0,1.0,62,1,5,1,"SELECT * FROM users UNION SELECT password, username FROM admin"
+0,0,0,0,0,2.3978952727983707,8.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+5,0,0,0,0,9.684896124569141,2.0,1.0,22,0,9,1,DELETE FROM customers;
+1,0,0,0,0,1.9459101490553132,11.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,2.1972245773362196,17.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+2,0,0,0,0,1.3862943611198906,11.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+1,0,0,0,0,0.6931471805599453,18.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,1.0986122886681098,11.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+2,0,0,0,0,2.3978952727983707,11.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+1,0,0,0,0,0.6931471805599453,9.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,1.791759469228055,8.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+2,0,0,0,0,1.6094379124341003,8.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+0,0,0,0,0,1.3862943611198906,18.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+1,0,0,0,0,2.1972245773362196,14.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,2.302585092994046,9.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+0,0,3,3,0,8.459352191726387,3.0,1.0,43,1,5,1,SELECT * FROM users WHERE id = 1 OR 1=1; --
+0,0,0,0,0,1.9459101490553132,15.0,1.0,67,3,6,0,SELECT count(*) FROM orders JOIN users ON users.id = orders.user_id
+2,0,0,0,0,2.302585092994046,13.0,1.0,52,0,8,0,UPDATE settings SET theme = 'dark' WHERE user_id = 5
+10,5,0,0,0,10.027606032372521,3.0,1.0,17,0,0,1,DROP TABLE users;
+0,0,0,0,0,1.6094379124341003,15.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+0,0,0,0,0,2.1972245773362196,18.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,2.3978952727983707,12.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+0,0,0,0,0,2.0794415416798357,14.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
+10,5,0,0,0,9.80272754938498,4.0,1.0,17,0,0,1,DROP TABLE users;
+0,0,0,0,0,1.0986122886681098,12.0,1.0,32,0,5,0,SELECT * FROM users WHERE id = 1
+1,0,0,0,0,1.791759469228055,10.0,1.0,41,0,4,0,INSERT INTO logs (event) VALUES ('login')
+0,0,0,0,0,1.791759469228055,11.0,1.0,33,0,9,0,"SELECT name, email FROM customers"
