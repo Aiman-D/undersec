@@ -1,12 +1,12 @@
 import React from 'react';
+import ModelControl from './pages/ModelControl';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Sidebar from './components/Sidebar';
+import Dashboard from './pages/Dashboard'; // <--- Import your new page!
 
-// Temporary placeholder components until we build the real pages
-const Dashboard = () => <div style={{ padding: '30px', color: '#fff' }}><h2>Dashboard</h2><p>Stats and charts will go here.</p></div>;
+// Placeholders for the remaining pages
 const Alerts = () => <div style={{ padding: '30px', color: '#fff' }}><h2>Alerts</h2><p>Flagged queries will go here.</p></div>;
 const Activity = () => <div style={{ padding: '30px', color: '#fff' }}><h2>Activity Log</h2><p>All database traffic will go here.</p></div>;
-const ModelControl = () => <div style={{ padding: '30px', color: '#fff' }}><h2>Model Control</h2><p>Retrain controls will go here.</p></div>;
 
 function App() {
   return (

@@ -20,21 +20,36 @@ class QueryRequest(BaseModel):
 def process_query(req: QueryRequest, db: Session = Depends(get_db)):
     start_time = time.time()
     
+    # Heuristic: If it's a destructive query, assume it affects massive amounts of rows
+    q_upper = req.query.upper()
+    estimated_rows = 10000 if any(kw in q_upper for kw in ["DROP", "DELETE", "TRUNCATE", "ALTER"]) else 1
+    
     # 1. Extract ML Features
-    # Note: We mock rows_affected and time_of_day for real-time interception
-    features = extract_features(req.query, req.user, time_of_day=14, rows_affected=1)
+    features = extract_features(req.query, req.user, time_of_day=14, rows_affected=estimated_rows)
     feature_vector = features_to_vector(features)
     
-    # 2. Score with Isolation Forest
-    ml_result = predict_query_risk(feature_vector)
+    # --- THE HYBRID SECURITY GATEWAY ---
+    # Rule 1: Instant Veto for Destructive Commands (DROP, ALTER, TRUNCATE)
+    if features.get("schema_change", 0) > 0 or features.get("qt_score", 0) >= 8:
+        ml_result = {"score": -0.9999, "level": "HIGH RISK", "status": "BLOCKED"}
+        
+    # Rule 2: Instant Veto for known injection signatures (UNION, Piggybacking)
+    elif features.get("has_union", 0) > 0 or features.get("has_multi_statement", 0) > 0:
+        ml_result = {"score": -0.8888, "level": "HIGH RISK", "status": "BLOCKED"}
+        
+    # Rule 3: Flag Suspicious Logic (Tautologies, excessive logic, deep nesting)
+    elif "1=1" in q_upper or q_upper.count(" OR ") >= 2 or q_upper.count("SELECT") > 1:
+        ml_result = {"score": -0.0450, "level": "MEDIUM RISK", "status": "FLAGGED"}
+        
+    # Rule 4: Pass everything else to the ML Model for behavioral analysis
+    else:
+        ml_result = predict_query_risk(feature_vector)
+    # -----------------------------------
     
-    # Determine basic query type for logging
-    q_upper = req.query.upper()
     q_type = q_upper.split()[0] if q_upper else "UNKNOWN"
+    execution_time = round((time.time() - start_time) * 1000, 2)
     
-    execution_time = round((time.time() - start_time) * 1000, 2) # in ms
-    
-    # 3. Log to Database
+    # 2. Log to Database
     log_entry = QueryLog(
         query_text=req.query,
         db_user=req.user,
@@ -47,8 +62,7 @@ def process_query(req: QueryRequest, db: Session = Depends(get_db)):
     db.commit()
     db.refresh(log_entry)
     
-    # 4. Create Alert if Suspicious
-    # 4. Create Alert if Suspicious
+    # 3. Create Alert if Suspicious
     if ml_result["status"] in ["BLOCKED", "FLAGGED"]:
         # Generate the explanation using our new GenAI layer
         ai_explanation = generate_explanation(

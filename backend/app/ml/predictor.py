@@ -19,28 +19,28 @@ def predict_query_risk(feature_vector: list) -> dict:
     if not model:
         return {"score": 0.0, "status": "ERROR", "level": "MODEL_MISSING"}
         
-    # Model expects a 2D array
     X = np.array(feature_vector).reshape(1, -1)
     
     # decision_function returns > 0 for inliers (safe), < 0 for outliers (anomalies)
-    score = model.decision_function(X)[0]
+    score = float(model.decision_function(X)[0])
     
-    # Determine risk level based on score separation
-    if score > 0:
+    # TIGHTER THRESHOLDS: 
+    # Anything below 0.0 is mathematically an anomaly in Isolation Forest.
+    if score >= 0.05:
         level = "SAFE"
         status = "ALLOWED"
-    elif score > -0.1:
+    elif score >= 0.0:
         level = "LOW RISK"
         status = "ALLOWED"
-    elif score > -0.3:
+    elif score >= -0.05:
         level = "MEDIUM RISK"
-        status = "FLAGGED"  # Allow but flag for review
+        status = "FLAGGED" 
     else:
         level = "HIGH RISK"
-        status = "BLOCKED"  # Drop the query
+        status = "BLOCKED" 
 
     return {
-        "score": round(float(score), 4),
+        "score": round(score, 4),
         "level": level,
         "status": status
     }
