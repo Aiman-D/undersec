@@ -1,3 +1,4 @@
+from app.genai.explainer import generate_explanation
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from pydantic import BaseModel
@@ -47,11 +48,20 @@ def process_query(req: QueryRequest, db: Session = Depends(get_db)):
     db.refresh(log_entry)
     
     # 4. Create Alert if Suspicious
+    # 4. Create Alert if Suspicious
     if ml_result["status"] in ["BLOCKED", "FLAGGED"]:
+        # Generate the explanation using our new GenAI layer
+        ai_explanation = generate_explanation(
+            query=req.query,
+            score=ml_result["score"],
+            user=req.user,
+            features=features
+        )
+
         alert = Alert(
             query_id=log_entry.id,
             risk_level=ml_result["level"],
-            explanation="GenAI explanation pending..." # We will add GenAI next
+            explanation=ai_explanation
         )
         db.add(alert)
         db.commit()
