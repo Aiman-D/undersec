@@ -12,27 +12,22 @@ except FileNotFoundError:
     model = None
     print(f"Warning: Model not found at {MODEL_PATH}. Run train_model.py first.")
 
-def predict_query_risk(feature_vector: list) -> dict:
-    """
-    Scores the query vector. Returns the raw score and the mapped risk level.
-    """
+# Add 'threshold' as a parameter!
+def predict_query_risk(feature_vector: list, threshold: float = -0.05) -> dict:
     if not model:
         return {"score": 0.0, "status": "ERROR", "level": "MODEL_MISSING"}
         
     X = np.array(feature_vector).reshape(1, -1)
-    
-    # decision_function returns > 0 for inliers (safe), < 0 for outliers (anomalies)
     score = float(model.decision_function(X)[0])
     
-    # TIGHTER THRESHOLDS: 
-    # Anything below 0.0 is mathematically an anomaly in Isolation Forest.
+    # Use the dynamic threshold here
     if score >= 0.05:
         level = "SAFE"
         status = "ALLOWED"
     elif score >= 0.0:
         level = "LOW RISK"
         status = "ALLOWED"
-    elif score >= -0.05:
+    elif score >= threshold: # <--- DYNAMIC VARIABLE HERE
         level = "MEDIUM RISK"
         status = "FLAGGED" 
     else:

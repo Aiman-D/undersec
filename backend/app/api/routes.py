@@ -11,6 +11,12 @@ from app.ml.predictor import predict_query_risk
 
 router = APIRouter()
 
+# --- DYNAMIC MEMORY STATE ---
+SECURITY_SETTINGS = {
+    "ml_block_threshold": -0.05,
+    "medium_rule_score": -0.0450
+}
+
 # Pydantic schema for incoming requests
 class QueryRequest(BaseModel):
     query: str
@@ -37,13 +43,13 @@ def process_query(req: QueryRequest, db: Session = Depends(get_db)):
     elif features.get("has_union", 0) > 0 or features.get("has_multi_statement", 0) > 0:
         ml_result = {"score": -0.8888, "level": "HIGH RISK", "status": "BLOCKED"}
         
-    # Rule 3: Flag Suspicious Logic (Tautologies, excessive logic, deep nesting)
+    # Rule 3: Flag Suspicious Logic
     elif "1=1" in q_upper or q_upper.count(" OR ") >= 2 or q_upper.count("SELECT") > 1:
-        ml_result = {"score": -0.0450, "level": "MEDIUM RISK", "status": "FLAGGED"}
+        ml_result = {"score": SECURITY_SETTINGS["medium_rule_score"], "level": "MEDIUM RISK", "status": "FLAGGED"}
         
-    # Rule 4: Pass everything else to the ML Model for behavioral analysis
+    # Rule 4: Pass to ML Model with our dynamic threshold
     else:
-        ml_result = predict_query_risk(feature_vector)
+        ml_result = predict_query_risk(feature_vector, SECURITY_SETTINGS["ml_block_threshold"])
     # -----------------------------------
     
     q_type = q_upper.split()[0] if q_upper else "UNKNOWN"
@@ -95,3 +101,12 @@ def get_activity(limit: int = 50, db: Session = Depends(get_db)):
 @router.get("/alerts")
 def get_alerts(limit: int = 50, db: Session = Depends(get_db)):
     return db.query(Alert).order_by(Alert.created_at.desc()).limit(limit).all()
+
+@router.get("/settings")
+def get_settings():
+    return SECURITY_SETTINGS
+
+@router.put("/settings")
+def update_settings(new_settings: dict):
+    SECURITY_SETTINGS.update(new_settings)
+    return SECURITY_SETTINGS
