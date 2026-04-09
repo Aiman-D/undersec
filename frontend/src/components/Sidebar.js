@@ -1,40 +1,71 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Shield, Activity, AlertTriangle, Settings } from 'lucide-react';
+import { ShieldCheck, LayoutDashboard, AlertTriangle, ClipboardList, Cpu } from 'lucide-react';
+import { getAlerts } from '../api/client';
+
+const navItems = [
+    { path: '/',          name: 'Dashboard',     icon: LayoutDashboard },
+    { path: '/alerts',    name: 'Alerts',         icon: AlertTriangle },
+    { path: '/activity',  name: 'Activity Log',   icon: ClipboardList },
+    { path: '/model',     name: 'Query Tester',   icon: Cpu },
+];
 
 const Sidebar = () => {
     const location = useLocation();
+    const [alertCount, setAlertCount] = useState(0);
 
-    const navItems = [
-        { path: '/', name: 'Dashboard', icon: <Activity size={20} /> },
-        { path: '/alerts', name: 'Alerts', icon: <AlertTriangle size={20} /> },
-        { path: '/activity', name: 'Activity Log', icon: <Shield size={20} /> },
-        { path: '/model', name: 'Model Control', icon: <Settings size={20} /> }
-    ];
+    useEffect(() => {
+        getAlerts(50).then(res => {
+            setAlertCount(res.data.length);
+        }).catch(() => {});
+    }, []);
 
     return (
-        <div style={{ width: '250px', backgroundColor: '#1e1e2f', color: '#fff', height: '100vh', padding: '20px', display: 'flex', flexDirection: 'column' }}>
-            <h2 style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#4ade80', marginBottom: '40px', marginTop: '10px' }}>
-                <Shield size={28} /> Undersec
-            </h2>
-            
-            <nav style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                {navItems.map((item) => (
-                    <Link 
-                        key={item.path} 
-                        to={item.path}
-                        style={{
-                            display: 'flex', alignItems: 'center', gap: '12px', padding: '12px',
-                            textDecoration: 'none', borderRadius: '8px',
-                            color: location.pathname === item.path ? '#fff' : '#8b8b9e',
-                            backgroundColor: location.pathname === item.path ? '#2d2d44' : 'transparent',
-                            transition: 'all 0.2s ease-in-out'
-                        }}
-                    >
-                        {item.icon} {item.name}
-                    </Link>
-                ))}
+        <div className="sidebar">
+            {/* Logo */}
+            <div className="sidebar-logo">
+                <div className="sidebar-logo-icon">
+                    <ShieldCheck size={16} color="#fff" />
+                </div>
+                <div>
+                    <div className="sidebar-logo-text">Undersec</div>
+                    <div className="sidebar-logo-sub">Security Gateway</div>
+                </div>
+            </div>
+
+            {/* Nav */}
+            <div style={{ marginBottom: '8px' }}>
+                <div className="sidebar-section-label">Navigation</div>
+            </div>
+            <nav className="sidebar-nav">
+                {navItems.map(({ path, name, icon: Icon }) => {
+                    const isActive = location.pathname === path;
+                    return (
+                        <Link
+                            key={path}
+                            to={path}
+                            className={`sidebar-link ${isActive ? 'active' : ''}`}
+                        >
+                            <span className="sidebar-link-icon">
+                                <Icon size={15} />
+                            </span>
+                            {name}
+                            {name === 'Alerts' && alertCount > 0 && (
+                                <span className="sidebar-link-badge">{alertCount}</span>
+                            )}
+                        </Link>
+                    );
+                })}
             </nav>
+
+            {/* Footer Status */}
+            <div className="sidebar-footer">
+                <div className="status-pill">
+                    <div className="status-dot" />
+                    <span className="status-pill-label">ML Engine</span>
+                    <span className="status-pill-value">Active</span>
+                </div>
+            </div>
         </div>
     );
 };

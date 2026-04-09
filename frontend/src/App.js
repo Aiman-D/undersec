@@ -1,29 +1,28 @@
 import React from 'react';
-import ModelControl from './pages/ModelControl';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Sidebar from './components/Sidebar';
-import Dashboard from './pages/Dashboard'; // <--- Import your new page!
-
-// Placeholders for the remaining pages
-const Alerts = () => <div style={{ padding: '30px', color: '#fff' }}><h2>Alerts</h2><p>Flagged queries will go here.</p></div>;
-const Activity = () => <div style={{ padding: '30px', color: '#fff' }}><h2>Activity Log</h2><p>All database traffic will go here.</p></div>;
+import Dashboard from './pages/Dashboard';
+import Alerts from './pages/Alerts';
+import ActivityLog from './pages/ActivityLog';
+import ModelControl from './pages/ModelControl';
+import './index.css';
 
 function App() {
-  return (
-    <Router>
-      <div style={{ display: 'flex', backgroundColor: '#13131a', minHeight: '100vh', fontFamily: 'system-ui, -apple-system, sans-serif' }}>
-        <Sidebar />
-        <div style={{ flex: 1, overflowY: 'auto' }}>
-          <Routes>
-            <Route path="/" element={<Dashboard />} />
-            <Route path="/alerts" element={<Alerts />} />
-            <Route path="/activity" element={<Activity />} />
-            <Route path="/model" element={<ModelControl />} />
-          </Routes>
-        </div>
-      </div>
-    </Router>
-  );
+    return (
+        <Router>
+            <div className="app-shell">
+                <Sidebar />
+                <main className="main-content">
+                    <Routes>
+                        <Route path="/"         element={<Dashboard />}   />
+                        <Route path="/alerts"   element={<Alerts />}      />
+                        <Route path="/activity" element={<ActivityLog />} />
+                        <Route path="/model"    element={<ModelControl />} />
+                    </Routes>
+                </main>
+            </div>
+        </Router>
+    );
 }
 
 export default App;
