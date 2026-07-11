@@ -12,3 +12,6 @@ export const apiClient = axios.create({
 export const getActivity = (limit = 50) => apiClient.get(`/activity?limit=${limit}`);
 export const getAlerts = (limit = 50) => apiClient.get(`/alerts?limit=${limit}`);
 export const sendTestQuery = (query, user = "admin") => apiClient.post('/query', { query, user });
+export const analyzePhishing = (url) => apiClient.post('/phishing/analyze', { url });
+export const getSystemHealth = () => apiClient.get('/health/metrics');
+export const getCCTVFeed = () => apiClient.get('/cctv/feed');

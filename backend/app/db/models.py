@@ -26,3 +26,10 @@ class Alert(Base):
     risk_level = Column(String)
     explanation = Column(String) # For GenAI later
     created_at = Column(DateTime, default=datetime.utcnow)
+
+class SystemSettings(Base):
+    __tablename__ = "system_settings"
+    
+    id = Column(Integer, primary_key=True, index=True)
+    setting_key = Column(String, unique=True, index=True)
+    setting_value = Column(Float)

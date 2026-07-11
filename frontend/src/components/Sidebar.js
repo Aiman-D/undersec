@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { ShieldCheck, LayoutDashboard, AlertTriangle, ClipboardList, Cpu } from 'lucide-react';
+import { ShieldCheck, LayoutDashboard, AlertTriangle, ClipboardList, Cpu, Link as LinkIcon, Activity, Camera } from 'lucide-react';
 import { getAlerts } from '../api/client';
 
 const navItems = [
@@ -8,6 +8,9 @@ const navItems = [
     { path: '/alerts',    name: 'Alerts',         icon: AlertTriangle },
     { path: '/activity',  name: 'Activity Log',   icon: ClipboardList },
     { path: '/model',     name: 'Query Tester',   icon: Cpu },
+    { path: '/phishing',  name: 'Phishing',       icon: LinkIcon },
+    { path: '/health',    name: 'System Health',  icon: Activity },
+    { path: '/cctv',      name: 'CCTV Anomaly',   icon: Camera },
 ];
 
 const Sidebar = () => {
