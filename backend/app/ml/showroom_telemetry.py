@@ -98,8 +98,7 @@ def inject_display_fault(display_id: str, fault_type: str, duration_seconds: flo
     }
 
 def clear_display_fault(display_id: str):
-    if display_id in _active_faults:
-        del _active_faults[display_id]
+    _active_faults.pop(display_id, None)
     return {"status": "fault_cleared", "display_id": display_id}
 
 def clear_all_display_faults():
@@ -113,7 +112,7 @@ def sample_display_telemetry(display_config: dict) -> dict:
     # Check if a fault is currently active on this display
     active_fault = _active_faults.get(disp_id)
     if active_fault and now > active_fault["expires_at"]:
-        del _active_faults[disp_id]
+        _active_faults.pop(disp_id, None)
         active_fault = None
         
     fault_type = active_fault["fault_type"] if active_fault else None

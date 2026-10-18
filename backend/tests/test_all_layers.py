@@ -186,3 +186,37 @@ def test_api_overview_and_incidents():
     res_summary = client.get("/api/incidents/summary")
     assert res_summary.status_code == 200
     assert "summary" in res_summary.json()
+
+def test_showroom_all_fault_types():
+    fault_types = ["gpu_thermal", "touch_lag", "chassis_tamper", "frame_drop", "signal_loss"]
+    for ft in fault_types:
+        inject_res = inject_display_fault("PAN-CFG-02", ft, 10.0)
+        assert inject_res["status"] == "fault_injected"
+        detail = get_display_detail("PAN-CFG-02")
+        assert detail["telemetry"]["status"] in ["WARNING", "CRITICAL"]
+        assert len(detail["telemetry"]["fault_reasons"]) > 0
+        clear_display_fault("PAN-CFG-02")
+
+def test_api_custom_incidents_summarize():
+    custom = [
+        {"layer": "Layer 1 - Database Proxy", "severity": "HIGH RISK", "detail": "DROP TABLE query attempt"},
+        {"layer": "Layer 2 - Panasonic Showroom Telemetry", "severity": "CRITICAL", "detail": "Chassis tamper switch tripped"}
+    ]
+    res = client.post("/api/incidents/summarize", json={"incidents": custom})
+    assert res.status_code == 200
+    data = res.json()
+    assert "summary" in data
+    assert data["summary"]["threat_level"] in ["CRITICAL", "HIGH", "ELEVATED"]
+
+def test_cors_chrome_extension_origin():
+    # Chrome extension origins must receive Access-Control-Allow-Origin header
+    ext_origin = "chrome-extension://abcdefghijklmnop"
+    res = client.options("/api/phishing/analyze", headers={
+        "Origin": ext_origin,
+        "Access-Control-Request-Method": "POST",
+        "Access-Control-Request-Headers": "content-type"
+    })
+    assert res.status_code == 200
+    assert res.headers.get("access-control-allow-origin") == ext_origin
+
+

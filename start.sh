@@ -10,7 +10,7 @@ trap 'kill $BACKEND_PID $PROXY_PID $FRONTEND_PID 2>/dev/null; exit' SIGINT SIGTE
 # 1. Start FastAPI Central Gateway
 echo "[1/3] Starting FastAPI Central Gateway (Port 8000)..."
 cd backend
-uvicorn main:app --port 8000 &
+python3 -m uvicorn main:app --port 8000 &
 BACKEND_PID=$!
 
 # 2. Start PostgreSQL v3 Wire Protocol TCP Proxy
@@ -30,7 +30,7 @@ echo "  • FastAPI Central Gateway:   http://localhost:8000"
 echo "  • PostgreSQL TCP DPI Proxy:  localhost:5432 (or 9000)"
 echo "  • React Showroom Dashboard:  http://localhost:3000"
 echo "  • Chrome Extension Folder:   ./extension"
-echo "  • Traffic Generator:         python demo_runner.py"
+echo "  • Traffic Generator:         python3 demo_runner.py"
 echo "=========================================================="
 echo "Press Ctrl+C to stop all services."
 

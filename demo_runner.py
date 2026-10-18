@@ -64,9 +64,50 @@ def send_sql_query(query, user="showroom_kiosk"):
         status = data.get("status", "UNKNOWN")
         level = data.get("risk_level", "")
         score = data.get("score", 0.0)
-        print(f"  [Layer 1 · DB Proxy] {status:7s} ({level}) | Score: {score:7.4f} | {query[:45]}...")
+        print(f"  [Layer 1 · HTTP Gateway] {status:7s} ({level}) | Score: {score:7.4f} | {query[:45]}...")
     except Exception as e:
-        print(f"  [Layer 1 · DB Proxy] Error: {e}")
+        print(f"  [Layer 1 · HTTP Gateway] Error: {e}")
+
+def send_tcp_wire_query(query, port=5432):
+    """Sends raw PostgreSQL v3 wire protocol query directly over TCP socket to the proxy."""
+    import socket
+    import struct
+    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    s.settimeout(1.5)
+    target_port = port
+    try:
+        try:
+            s.connect(("127.0.0.1", port))
+        except OSError:
+            target_port = 9000
+            s.connect(("127.0.0.1", target_port))
+            
+        # 1. Send StartupMessage (v3)
+        startup = struct.pack("!II", 8, 196608)
+        s.sendall(startup)
+        
+        # Read AuthOk + ReadyForQuery
+        s.recv(1024)
+        
+        # 2. Send Query message ('Q')
+        q_bytes = query.encode('utf-8') + b'\x00'
+        q_pkt = b'Q' + struct.pack("!I", len(q_bytes) + 4) + q_bytes
+        s.sendall(q_pkt)
+        
+        resp = s.recv(1024)
+        if resp.startswith(b'E'):
+            print(f"  [Layer 1 · TCP Wire Socket :{target_port}] BLOCKED & DROPPED SQLi socket | {query[:45]}...")
+        else:
+            print(f"  [Layer 1 · TCP Wire Socket :{target_port}] ALLOWED wire packet | {query[:45]}...")
+            try:
+                s.sendall(b'X\x00\x00\x00\x04')
+            except Exception:
+                pass
+    except Exception:
+        # Fallback to HTTP API query if TCP proxy port is unavailable
+        send_sql_query(query)
+    finally:
+        s.close()
 
 def trigger_showroom_telemetry():
     try:
@@ -144,11 +185,14 @@ if __name__ == "__main__":
         step += 1
         print(f"\n--- [Cycle #{step}] Generating Multi-Layer Security Activity ---")
         
-        # 1. Database Queries
-        if random.random() < 0.7:
-            send_sql_query(random.choice(NORMAL_QUERIES), user="panasonic_kiosk_app")
+        # 1. Database Queries (Interleaves TCP wire socket queries and REST Gateway queries)
+        is_normal = (random.random() < 0.7)
+        q = random.choice(NORMAL_QUERIES if is_normal else MALICIOUS_QUERIES)
+        user = "panasonic_kiosk_app" if is_normal else "threat_actor_42"
+        if random.random() < 0.5:
+            send_tcp_wire_query(q)
         else:
-            send_sql_query(random.choice(MALICIOUS_QUERIES), user="threat_actor_42")
+            send_sql_query(q, user=user)
             
         # 2. Showroom Hardware Telemetry
         trigger_showroom_telemetry()

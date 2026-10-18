@@ -1,3 +1,5 @@
+import os
+from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.db.database import init_db
@@ -6,27 +8,32 @@ from app.api.phishing import router as phishing_router
 from app.api.health import router as health_router
 from app.api.cctv import router as cctv_router
 
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    init_db()
+    yield
+
 app = FastAPI(
     title="Undersec Security Gateway",
     description="ML-powered database anomaly detection",
-    version="1.0.0"
+    version="1.0.0",
+    lifespan=lifespan
 )
 
-import os
-
-ALLOWED_ORIGINS = os.getenv("ALLOWED_ORIGINS", "http://localhost:3000,chrome-extension://*").split(",")
+ALLOWED_ORIGINS = [
+    origin.strip() 
+    for origin in os.getenv("ALLOWED_ORIGINS", "http://localhost:3000,http://127.0.0.1:3000").split(",")
+    if origin.strip() and not origin.startswith("chrome-extension://")
+]
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=ALLOWED_ORIGINS, 
+    allow_origins=ALLOWED_ORIGINS,
+    allow_origin_regex=r"^chrome-extension://.*",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
-@app.on_event("startup")
-def on_startup():
-    init_db()
 
 # THIS IS THE CRITICAL LINE:
 app.include_router(api_router, prefix="/api")

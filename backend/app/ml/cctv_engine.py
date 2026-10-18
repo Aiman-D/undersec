@@ -85,6 +85,7 @@ def trigger_cctv_intrusion(zone_id: str = "ZONE-01-CONCEPT", duration_seconds: f
 def clear_cctv_intrusion():
     _sim_state["active_intrusion"] = False
     _sim_state["intrusion_expires_at"] = 0.0
+    _sim_state["cooldown_until"] = time.time() + 25.0
     return {"status": "intrusion_cleared"}
 
 def point_in_rect(px, py, rect):
@@ -202,9 +203,9 @@ def analyze_cctv_frame(frame_path=None):
     if _sim_state["active_intrusion"] and now > _sim_state["intrusion_expires_at"]:
         _sim_state["active_intrusion"] = False
         
-    # Periodic autonomous intrusion for demo liveness if no manual trigger (every 40s for 8s)
+    # Periodic autonomous intrusion for demo liveness if no manual trigger and not in cooldown (every 40s for 8s)
     cycle = int(now) % 40
-    autonomous_intrusion = (cycle >= 28 and cycle <= 36)
+    autonomous_intrusion = (cycle >= 28 and cycle <= 36) and (now > _sim_state.get("cooldown_until", 0.0))
     
     is_intrusion = _sim_state["active_intrusion"] or autonomous_intrusion
     current_zone = _sim_state["intrusion_zone"] if _sim_state["active_intrusion"] else ("ZONE-01-CONCEPT" if (cycle % 2 == 0) else "ZONE-02-PROXY-CORE")

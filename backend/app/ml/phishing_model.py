@@ -14,7 +14,17 @@ try:
     model = joblib.load(MODEL_PATH)
 except (FileNotFoundError, Exception):
     model = None
-    print(f"Warning: Phishing XGBoost model not found at {MODEL_PATH}. Using heuristic fallback.")
+import ipaddress
+
+def is_ip_host(host_str: str) -> bool:
+    if not host_str:
+        return False
+    h = host_str.strip("[]")
+    try:
+        ipaddress.ip_address(h)
+        return True
+    except ValueError:
+        return bool(re.fullmatch(r'\d{1,3}(\.\d{1,3}){3}', h))
 
 def extract_features(url: str):
     """
@@ -51,7 +61,7 @@ def extract_features(url: str):
     ent = -sum((c/L) * (math.log2(c/L)) for c in cnt.values()) if L > 0 else 0.0
     
     non_alnum = sum(1 for c in base_url_string if not c.isalnum()) / max(1, len(base_url_string))
-    has_ip = bool(re.fullmatch(r'\d{1,3}(\.\d{1,3}){3}', host))
+    has_ip = is_ip_host(host)
 
     return [len_url, len_host, count_digits, subdomains, int(has_ip), non_alnum, ent]
 
@@ -64,7 +74,7 @@ def heuristic_score(url: str):
     subdomains = max(0, host.count('.') - 1); cnt = Counter(path); L = len(path) if len(path) else 1
     ent = -sum((c/L) * (math.log2(c/L)) for c in cnt.values()) if L > 0 else 0.0
     non_alnum = sum(1 for c in url if not c.isalnum()) / max(1, len(url))
-    has_ip = bool(re.fullmatch(r'\d{1,3}(\.\d{1,3}){3}', host)); score = 0; reasons = []
+    has_ip = is_ip_host(host); score = 0; reasons = []
     
     if has_ip: score += 3; reasons.append("IP address used in domain")
     if len_url > 75: score += 2; reasons.append(f"URL length {len_url} > 75")

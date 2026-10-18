@@ -32,18 +32,25 @@ class PostgresProtocolParser:
 
     @staticmethod
     async def read_query_message(reader):
-        """Reads a Query ('Q') message."""
+        """Reads a message from client. Supports Query ('Q'), Terminate ('X'), etc."""
         try:
             msg_type = await reader.readexactly(1)
-            if msg_type != b'Q':
-                return None, msg_type
+            if msg_type == b'X':
+                # Terminate message has a 4-byte length header (value 4)
+                try:
+                    await reader.readexactly(4)
+                except asyncio.IncompleteReadError:
+                    pass
+                return None, b'X'
             
             length_bytes = await reader.readexactly(4)
             length = struct.unpack("!I", length_bytes)[0]
+            payload = await reader.readexactly(max(0, length - 4))
             
-            payload = await reader.readexactly(length - 4)
-            query_string = payload[:-1].decode('utf-8', errors='ignore')
-            return query_string, b'Q'
+            if msg_type == b'Q':
+                query_string = payload[:-1].decode('utf-8', errors='ignore') if payload else ""
+                return query_string, b'Q'
+            return None, msg_type
         except asyncio.IncompleteReadError:
             return None, None
 
@@ -57,7 +64,7 @@ async def send_log_to_backend(payload: dict):
 
 async def process_client(reader, writer):
     addr = writer.get_extra_info('peername')
-    user_ip = addr[0]
+    user_ip = addr[0] if addr else "127.0.0.1"
     print(f"[Proxy] Connection accepted from Postgres Client at {addr}")
     
     try:
@@ -70,8 +77,10 @@ async def process_client(reader, writer):
             msg_type = await PostgresProtocolParser.read_startup_message(reader)
             
         if msg_type == "StartupMessage":
-            writer.write(struct.pack("!ciI", b'R', 8, 0))
-            writer.write(struct.pack("!ciI", b'Z', 5, b'I'[0]))
+            # AuthenticationOk: Byte1('R') + Int32(8) + Int32(0)
+            writer.write(b'R' + struct.pack("!ii", 8, 0))
+            # ReadyForQuery: Byte1('Z') + Int32(5) + Byte1('I')
+            writer.write(b'Z\x00\x00\x00\x05I')
             await writer.drain()
         else:
             print(f"[Proxy] Invalid Startup Message from {addr}")
@@ -83,11 +92,14 @@ async def process_client(reader, writer):
         # 2. Intercept Queries
         while True:
             query, packet_type = await PostgresProtocolParser.read_query_message(reader)
-            if not packet_type:
+            if not packet_type or packet_type == b'X':
+                # Client disconnected or sent Terminate ('X')
+                print(f"[Proxy] Client {addr} disconnected cleanly.")
                 break 
                 
             if packet_type != b'Q':
-                writer.write(struct.pack("!ciI", b'Z', 5, b'I'[0]))
+                # Return ReadyForQuery for non-query commands (e.g. Sync)
+                writer.write(b'Z\x00\x00\x00\x05I')
                 await writer.drain()
                 continue
                 
@@ -144,15 +156,20 @@ async def process_client(reader, writer):
 
             if final_status == "BLOCKED":
                 print(f"[Proxy] BLOCKED query from {addr}. Dropping connection.")
-                err_msg = "FATAL: Security Policy Violation. Connection Dropped by Undersec ML Engine.\x00"
-                err_payload = b'S' + b'FATAL\x00' + b'C' + b'XX000\x00' + b'M' + err_msg.encode() + b'\x00'
-                writer.write(struct.pack("!ci", b'E', len(err_payload) + 4) + err_payload)
+                err_msg = b"FATAL: Security Policy Violation. Connection Dropped by Undersec ML Engine."
+                err_payload = b'SFATAL\x00CXX000\x00M' + err_msg + b'\x00\x00'
+                writer.write(b'E' + struct.pack("!i", len(err_payload) + 4) + err_payload)
                 await writer.drain()
                 break # Forcefully kill socket
             else:
                 print(f"[Proxy] ALLOWED query from {addr}.")
-                writer.write(struct.pack("!ciI", b'C', 13, b'SELECT 1\x00'[0]))
-                writer.write(struct.pack("!ciI", b'Z', 5, b'I'[0]))
+                first_word = q_type.upper() if q_type else "SELECT"
+                if first_word in ["INSERT", "UPDATE", "DELETE"]:
+                    tag = f"{first_word} 1\x00".encode('utf-8')
+                else:
+                    tag = b"SELECT 1\x00"
+                writer.write(b'C' + struct.pack("!i", len(tag) + 4) + tag)
+                writer.write(b'Z\x00\x00\x00\x05I')
                 await writer.drain()
                 
     except Exception as e:
