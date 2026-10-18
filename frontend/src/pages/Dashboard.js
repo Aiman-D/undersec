@@ -1,78 +1,47 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { Link } from 'react-router-dom';
 import {
-    AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer,
-    PieChart, Pie, Cell
+    AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer
 } from 'recharts';
-import { Database, CheckCircle2, AlertTriangle, Ban, RefreshCw } from 'lucide-react';
-import { getActivity } from '../api/client';
-
-const PIE_COLORS = {
-    Safe:    '#22c55e',
-    Flagged: '#f59e0b',
-    Blocked: '#ef4444',
-};
-
-const CustomTooltip = ({ active, payload, label }) => {
-    if (active && payload && payload.length) {
-        return (
-            <div style={{
-                background: '#141920',
-                border: '1px solid rgba(255,255,255,0.08)',
-                borderRadius: 8,
-                padding: '10px 14px',
-                fontSize: 12,
-            }}>
-                <div style={{ color: '#8892a4', marginBottom: 4 }}>{label}</div>
-                {payload.map(p => (
-                    <div key={p.name} style={{ color: p.color, fontWeight: 600 }}>
-                        {p.name}: {p.value}
-                    </div>
-                ))}
-            </div>
-        );
-    }
-    return null;
-};
-
-const StatCard = ({ title, value, icon: Icon, color, bgColor, sub }) => (
-    <div className="stat-card" style={{ '--card-accent': color }}>
-        <div className="stat-card-top">
-            <span className="stat-card-label">{title}</span>
-            <div className="stat-card-icon" style={{ background: bgColor }}>
-                <Icon size={16} color={color} />
-            </div>
-        </div>
-        <div className="stat-card-value" style={{ color }}>{value}</div>
-        {sub && <div className="stat-card-sub">{sub}</div>}
-    </div>
-);
+import { 
+    Database, 
+    Sparkles, 
+    RefreshCw, 
+    ArrowRight
+} from 'lucide-react';
+import { 
+    getOverviewStatus, 
+    getIncidentSummary, 
+    summarizeCustomIncidents, 
+    getActivity, 
+    triggerCCTVIntrusion,
+    CCTV_FRAME_URL 
+} from '../api/client';
 
 const Dashboard = () => {
-    const [stats, setStats]     = useState({ total: 0, safe: 0, flagged: 0, blocked: 0 });
+    const [overview, setOverview] = useState(null);
+    const [incidentSummary, setIncidentSummary] = useState(null);
     const [history, setHistory] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [summarizing, setSummarizing] = useState(false);
     const [lastRefresh, setLastRefresh] = useState(null);
 
     const fetchData = useCallback(async () => {
-        setLoading(true);
         try {
-            const res  = await getActivity(100);
-            const data = res.data;
+            const [ovRes, sumRes, actRes] = await Promise.all([
+                getOverviewStatus().catch(() => ({ data: null })),
+                getIncidentSummary().catch(() => ({ data: { summary: null } })),
+                getActivity(100).catch(() => ({ data: [] }))
+            ]);
 
-            let safe = 0, flagged = 0, blocked = 0;
-            data.forEach(q => {
-                if (q.status === 'BLOCKED') blocked++;
-                else if (q.status === 'FLAGGED' || (q.status === 'ALLOWED' && q.anomaly_score <= -0.1)) flagged++;
-                else safe++;
-            });
+            setOverview(ovRes.data);
+            setIncidentSummary(sumRes.data?.summary);
 
-            setStats({ total: data.length, safe, flagged, blocked });
-
-            // Build sparkline: group last 20 entries into buckets of 4
+            const data = actRes.data || [];
             const reversed = [...data].reverse();
-            const buckets  = [];
-            const size     = 5;
-            for (let i = 0; i < Math.min(reversed.length, 20); i += size) {
+            const buckets = [];
+            const size = 5;
+            for (let i = 0; i < Math.min(reversed.length, 25); i += size) {
                 const chunk = reversed.slice(i, i + size);
                 const s = chunk.filter(q => q.status !== 'BLOCKED' && q.status !== 'FLAGGED').length;
                 const f = chunk.filter(q => q.status === 'FLAGGED').length;
@@ -90,30 +59,63 @@ const Dashboard = () => {
 
     useEffect(() => {
         fetchData();
-        const id = setInterval(fetchData, 20000);
+        const id = setInterval(fetchData, 12000);
         return () => clearInterval(id);
     }, [fetchData]);
 
-    const pieData = [
-        { name: 'Safe',    value: stats.safe },
-        { name: 'Flagged', value: stats.flagged },
-        { name: 'Blocked', value: stats.blocked },
-    ].filter(d => d.value > 0);
+    const handleGenerateAIIncidentSummary = async () => {
+        setSummarizing(true);
+        try {
+            const res = await summarizeCustomIncidents();
+            setIncidentSummary(res.data?.summary);
+        } catch (err) {
+            console.error(err);
+        } finally {
+            setSummarizing(false);
+        }
+    };
 
-    const threatRate = stats.total > 0
-        ? (((stats.flagged + stats.blocked) / stats.total) * 100).toFixed(1)
+    const handleTriggerCCTVDemo = async () => {
+        try {
+            await triggerCCTVIntrusion('ZONE-01-CONCEPT', 10.0);
+            fetchData();
+        } catch (err) {
+            console.error(err);
+        }
+    };
+
+    const l1 = overview?.layers?.layer1_db_proxy;
+    const l2 = overview?.layers?.layer2_showroom_telemetry;
+    const l3 = overview?.layers?.layer3_cctv_engine;
+    const l4 = overview?.layers?.layer4_phishing_guard;
+
+    const threatRate = l1 && l1.total_queries > 0
+        ? (((l1.blocked_sockets + l1.flagged_queries) / l1.total_queries) * 100).toFixed(1)
         : '0.0';
 
     return (
         <div className="page fade-in">
             {/* Header */}
-            <div className="page-header" style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between' }}>
+            <div className="page-header" style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', marginBottom: 20 }}>
                 <div>
-                    <h1 className="page-title">Security Overview</h1>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                        <h1 className="page-title">UnderSec Security Suite</h1>
+                        <span style={{ 
+                            background: 'rgba(59, 130, 246, 0.15)', 
+                            border: '1px solid rgba(59, 130, 246, 0.3)', 
+                            color: 'var(--accent-blue)', 
+                            padding: '3px 10px', 
+                            borderRadius: '12px', 
+                            fontSize: '11px', 
+                            fontWeight: 700 
+                        }}>
+                            Track Winner Apr 2026
+                        </span>
+                    </div>
                     <p className="page-subtitle">
-                        Real-time monitoring of your database query gateway
+                        4-Layer Enterprise & Panasonic Showroom Security Suite: PostgreSQL v3 DPI Proxy, Display Diagnostics, YOLOv8 CCTV & XGBoost Phishing
                         {lastRefresh && (
-                            <span style={{ marginLeft: 12, color: '#4d5a6b' }}>
+                            <span style={{ marginLeft: 12, color: 'var(--text-muted)' }}>
                                 · Updated {lastRefresh.toLocaleTimeString()}
                             </span>
                         )}
@@ -132,80 +134,191 @@ const Dashboard = () => {
                     }}
                 >
                     <RefreshCw size={13} style={{ animation: loading ? 'spin 1s linear infinite' : 'none' }} />
-                    Refresh
+                    Refresh Suite
                 </button>
             </div>
 
-            {/* Stat Cards */}
-            <div className="stat-grid">
-                <StatCard
-                    title="Total Queries"
-                    value={stats.total}
-                    icon={Database}
-                    color="var(--accent-blue)"
-                    bgColor="var(--accent-blue-glow)"
-                    sub="Last 100 requests"
-                />
-                <StatCard
-                    title="Safe Traffic"
-                    value={stats.safe}
-                    icon={CheckCircle2}
-                    color="var(--accent-green)"
-                    bgColor="var(--accent-green-glow)"
-                    sub={stats.total > 0 ? `${((stats.safe / stats.total) * 100).toFixed(0)}% pass rate` : '—'}
-                />
-                <StatCard
-                    title="Flagged"
-                    value={stats.flagged}
-                    icon={AlertTriangle}
-                    color="var(--accent-yellow)"
-                    bgColor="var(--accent-yellow-glow)"
-                    sub="Needs review"
-                />
-                <StatCard
-                    title="Blocked"
-                    value={stats.blocked}
-                    icon={Ban}
-                    color="var(--accent-red)"
-                    bgColor="var(--accent-red-glow)"
-                    sub={`${threatRate}% threat rate`}
-                />
+            {/* GenAI Incident Summarization Banner */}
+            <div className="incident-briefing-card fade-in">
+                <div className="briefing-header">
+                    <div className="briefing-title">
+                        <Sparkles size={18} color="#a78bfa" />
+                        Ollama LLM Multi-Layer Security Briefing
+                        <span style={{ 
+                            fontSize: '10px', 
+                            padding: '2px 8px', 
+                            borderRadius: '12px', 
+                            background: incidentSummary?.threat_level === 'CRITICAL' || incidentSummary?.threat_level === 'HIGH' ? 'rgba(239, 68, 68, 0.2)' : 'rgba(34, 197, 94, 0.2)',
+                            color: incidentSummary?.threat_level === 'CRITICAL' || incidentSummary?.threat_level === 'HIGH' ? 'var(--accent-red)' : 'var(--accent-green)',
+                            border: '1px solid currentColor',
+                            fontWeight: 700
+                        }}>
+                            THREAT LEVEL: {incidentSummary?.threat_level || 'NORMAL'}
+                        </span>
+                    </div>
+                    <button
+                        onClick={handleGenerateAIIncidentSummary}
+                        disabled={summarizing}
+                        style={{
+                            display: 'flex', alignItems: 'center', gap: 6,
+                            background: 'rgba(139, 92, 246, 0.25)', border: '1px solid rgba(139, 92, 246, 0.5)',
+                            borderRadius: 'var(--radius-sm)', color: '#e9d5ff',
+                            fontSize: 11, fontWeight: 600, padding: '6px 12px',
+                            cursor: summarizing ? 'not-allowed' : 'pointer',
+                            transition: 'all 0.15s', outline: 'none',
+                        }}
+                    >
+                        <Sparkles size={12} style={{ animation: summarizing ? 'spin 1s linear infinite' : 'none' }} />
+                        {summarizing ? 'Correlating Telemetry...' : 'Generate AI Briefing'}
+                    </button>
+                </div>
+
+                <div className="briefing-text">
+                    {incidentSummary?.executive_summary || "Ollama LLM engine actively monitoring all 4 UnderSec security layers. Click 'Generate AI Briefing' to synthesize current database, showroom hardware, CCTV, and phishing events."}
+                </div>
+
+                {incidentSummary?.action_items && (
+                    <div className="briefing-actions">
+                        <span style={{ fontSize: 11, color: '#a78bfa', fontWeight: 600, alignSelf: 'center', marginRight: 4 }}>
+                            Immediate Containment:
+                        </span>
+                        {incidentSummary.action_items.map((item, idx) => (
+                            <div key={idx} className="briefing-action-chip">
+                                • {item}
+                            </div>
+                        ))}
+                    </div>
+                )}
             </div>
 
-            {/* Charts */}
-            <div className="charts-grid">
-                {/* Area Chart */}
+            {/* The 4 Architecture Layers Grid */}
+            <div className="layer-grid">
+                {/* Layer 1 */}
+                <div className="layer-card">
+                    <span className="layer-card-tag" style={{ background: 'rgba(59, 130, 246, 0.2)', color: 'var(--accent-blue)' }}>
+                        Layer 1 · PostgreSQL Proxy
+                    </span>
+                    <div className="layer-card-title">v3 Wire Protocol DPI</div>
+                    <div className="layer-card-desc">
+                        Asyncio TCP proxy on port 5432 with sqlparse AST inspection & inline Isolation Forest scoring to drop SQLi sockets.
+                    </div>
+                    <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between' }}>
+                        <div>
+                            <div className="layer-card-metric text-blue">{l1?.blocked_sockets ?? 0} Dropped</div>
+                            <div style={{ fontSize: 11, color: 'var(--text-muted)' }}>{l1?.total_queries ?? 0} total queries · {threatRate}% threat</div>
+                        </div>
+                        <Link to="/activity" style={{ color: 'var(--accent-blue)', display: 'flex', alignItems: 'center' }}>
+                            <ArrowRight size={15} />
+                        </Link>
+                    </div>
+                </div>
+
+                {/* Layer 2 */}
+                <div className="layer-card">
+                    <span className="layer-card-tag" style={{ background: 'rgba(34, 197, 94, 0.2)', color: 'var(--accent-green)' }}>
+                        Layer 2 · Panasonic Telemetry
+                    </span>
+                    <div className="layer-card-title">Vehicle Configurator Displays</div>
+                    <div className="layer-card-desc">
+                        Real-time hardware health telemetry across 5 interactive vehicle-configurator displays (FPS, GPU/panel thermal, touch latency).
+                    </div>
+                    <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between' }}>
+                        <div>
+                            <div className="layer-card-metric text-green">{l2?.fleet_health_score ?? 100}% Health</div>
+                            <div style={{ fontSize: 11, color: 'var(--text-muted)' }}>
+                                {l2?.counts?.healthy ?? 5} Healthy · {l2?.averages?.avg_fps ?? 60} avg FPS
+                            </div>
+                        </div>
+                        <Link to="/health" style={{ color: 'var(--accent-green)', display: 'flex', alignItems: 'center' }}>
+                            <ArrowRight size={15} />
+                        </Link>
+                    </div>
+                </div>
+
+                {/* Layer 3 */}
+                <div className="layer-card">
+                    <span className="layer-card-tag" style={{ background: 'rgba(245, 158, 11, 0.2)', color: 'var(--accent-yellow)' }}>
+                        Layer 3 · Computer Vision
+                    </span>
+                    <div className="layer-card-title">YOLOv8 CCTV Zone Engine</div>
+                    <div className="layer-card-desc">
+                        Real-time spatial bounding-box zone intrusion detection over restricted concept vehicle stage & DB proxy enclosure.
+                    </div>
+                    <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between' }}>
+                        <div>
+                            <div className="layer-card-metric" style={{ color: l3?.has_breach ? 'var(--accent-red)' : 'var(--accent-green)' }}>
+                                {l3?.has_breach ? 'BREACH ALERT' : 'SECURE'}
+                            </div>
+                            <div style={{ fontSize: 11, color: 'var(--text-muted)' }}>
+                                Score: {l3?.anomaly_score ?? '0.0'} · 3 zones active
+                            </div>
+                        </div>
+                        <Link to="/cctv" style={{ color: 'var(--accent-yellow)', display: 'flex', alignItems: 'center' }}>
+                            <ArrowRight size={15} />
+                        </Link>
+                    </div>
+                </div>
+
+                {/* Layer 4 */}
+                <div className="layer-card">
+                    <span className="layer-card-tag" style={{ background: 'rgba(239, 68, 68, 0.2)', color: 'var(--accent-red)' }}>
+                        Layer 4 · Client Phishing Guard
+                    </span>
+                    <div className="layer-card-title">7-Feature XGBoost Model</div>
+                    <div className="layer-card-desc">
+                        Real-time Chrome Extension inspecting URL length, host, digits, subdomains, IP presence, non-alnum ratio & Shannon entropy.
+                    </div>
+                    <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between' }}>
+                        <div>
+                            <div className="layer-card-metric text-red">{l4?.phishing_blocked ?? 0} Blocked</div>
+                            <div style={{ fontSize: 11, color: 'var(--text-muted)' }}>
+                                {l4?.scans_conducted ?? 0} URLs evaluated · 7 features
+                            </div>
+                        </div>
+                        <Link to="/phishing" style={{ color: 'var(--accent-red)', display: 'flex', alignItems: 'center' }}>
+                            <ArrowRight size={15} />
+                        </Link>
+                    </div>
+                </div>
+            </div>
+
+            {/* Charts & Live Feeds Grid */}
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 380px', gap: 20 }}>
+                {/* Traffic Breakdown Chart */}
                 <div className="card">
                     <div className="card-header">
                         <div>
-                            <div className="card-title">Traffic Breakdown</div>
-                            <div className="card-subtitle">Query status over recent batches</div>
+                            <div className="card-title">Database DPI Stream Telemetry</div>
+                            <div className="card-subtitle">Real-time PostgreSQL query classification & socket status</div>
                         </div>
-                        <span className="card-tag">Live</span>
+                        <span className="card-tag">Live Stream</span>
                     </div>
+
                     {loading ? (
                         <div className="loading-pulse"><span /><span /><span /></div>
                     ) : history.length > 0 ? (
-                        <ResponsiveContainer width="100%" height={220}>
-                            <AreaChart data={history} margin={{ top: 4, right: 4, left: -24, bottom: 0 }}>
+                        <ResponsiveContainer width="100%" height={230}>
+                            <AreaChart data={history} margin={{ top: 6, right: 10, left: -24, bottom: 0 }}>
                                 <defs>
-                                    <linearGradient id="gSafe"    x1="0" y1="0" x2="0" y2="1">
-                                        <stop offset="5%"  stopColor="#22c55e" stopOpacity={0.25} />
+                                    <linearGradient id="gSafe" x1="0" y1="0" x2="0" y2="1">
+                                        <stop offset="5%" stopColor="#22c55e" stopOpacity={0.3} />
                                         <stop offset="95%" stopColor="#22c55e" stopOpacity={0} />
                                     </linearGradient>
                                     <linearGradient id="gFlagged" x1="0" y1="0" x2="0" y2="1">
-                                        <stop offset="5%"  stopColor="#f59e0b" stopOpacity={0.25} />
+                                        <stop offset="5%" stopColor="#f59e0b" stopOpacity={0.3} />
                                         <stop offset="95%" stopColor="#f59e0b" stopOpacity={0} />
                                     </linearGradient>
                                     <linearGradient id="gBlocked" x1="0" y1="0" x2="0" y2="1">
-                                        <stop offset="5%"  stopColor="#ef4444" stopOpacity={0.25} />
+                                        <stop offset="5%" stopColor="#ef4444" stopOpacity={0.3} />
                                         <stop offset="95%" stopColor="#ef4444" stopOpacity={0} />
                                     </linearGradient>
                                 </defs>
                                 <XAxis dataKey="name" tick={{ fill: '#4d5a6b', fontSize: 11 }} axisLine={false} tickLine={false} />
                                 <YAxis tick={{ fill: '#4d5a6b', fontSize: 11 }} axisLine={false} tickLine={false} allowDecimals={false} />
-                                <Tooltip content={<CustomTooltip />} />
-                                <Area type="monotone" dataKey="Safe"    stroke="#22c55e" strokeWidth={2} fill="url(#gSafe)" />
+                                <Tooltip 
+                                    contentStyle={{ background: '#141920', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 8, fontSize: 12 }}
+                                />
+                                <Area type="monotone" dataKey="Safe" stroke="#22c55e" strokeWidth={2} fill="url(#gSafe)" />
                                 <Area type="monotone" dataKey="Flagged" stroke="#f59e0b" strokeWidth={2} fill="url(#gFlagged)" />
                                 <Area type="monotone" dataKey="Blocked" stroke="#ef4444" strokeWidth={2} fill="url(#gBlocked)" />
                             </AreaChart>
@@ -213,63 +326,83 @@ const Dashboard = () => {
                     ) : (
                         <div className="empty-state">
                             <div className="empty-state-icon"><Database size={20} /></div>
-                            <div className="empty-state-title">No data yet</div>
-                            <div className="empty-state-sub">Run some queries through the gateway to see data here</div>
+                            <div className="empty-state-title">Awaiting Gateway Traffic</div>
+                            <div className="empty-state-sub">Run demo_runner.py to simulate live enterprise queries</div>
                         </div>
                     )}
                 </div>
 
-                {/* Pie Chart */}
-                <div className="card">
-                    <div className="card-header">
+                {/* Live CCTV Mini Stream & Quick Trigger */}
+                <div className="card" style={{ display: 'flex', flexDirection: 'column' }}>
+                    <div className="card-header" style={{ paddingBottom: 10 }}>
                         <div>
-                            <div className="card-title">Risk Distribution</div>
-                            <div className="card-subtitle">Query classification breakdown</div>
+                            <div className="card-title">Live CCTV Showroom Feed</div>
+                            <div className="card-subtitle">YOLOv8 Automated Spatial Tracking</div>
+                        </div>
+                        <span style={{ 
+                            fontSize: 10, fontWeight: 700, padding: '2px 6px', borderRadius: 4,
+                            background: l3?.has_breach ? 'rgba(239, 68, 68, 0.2)' : 'rgba(34, 197, 94, 0.2)',
+                            color: l3?.has_breach ? 'var(--accent-red)' : 'var(--accent-green)'
+                        }}>
+                            {l3?.has_breach ? 'ZONE BREACH' : 'SECURE'}
+                        </span>
+                    </div>
+
+                    <div style={{ 
+                        flex: 1, 
+                        minHeight: 180, 
+                        background: '#070a0f', 
+                        borderRadius: 6, 
+                        overflow: 'hidden', 
+                        position: 'relative',
+                        border: l3?.has_breach ? '2px solid var(--accent-red)' : '1px solid var(--border)'
+                    }}>
+                        <img 
+                            src={`${CCTV_FRAME_URL}?t=${lastRefresh ? lastRefresh.getTime() : 0}`} 
+                            alt="Live Showroom CCTV" 
+                            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                            onError={(e) => { e.target.style.display = 'none'; }}
+                        />
+                        <div style={{ position: 'absolute', bottom: 6, left: 8, fontSize: 10, fontFamily: 'monospace', color: 'rgba(255,255,255,0.7)' }}>
+                            CAM-04 · CONCEPT EV STAGE
                         </div>
                     </div>
-                    {loading ? (
-                        <div className="loading-pulse"><span /><span /><span /></div>
-                    ) : pieData.length > 0 ? (
-                        <>
-                            <ResponsiveContainer width="100%" height={160}>
-                                <PieChart>
-                                    <Pie
-                                        data={pieData}
-                                        cx="50%" cy="50%"
-                                        innerRadius={50} outerRadius={72}
-                                        paddingAngle={3}
-                                        dataKey="value"
-                                        stroke="none"
-                                    >
-                                        {pieData.map((entry) => (
-                                            <Cell key={entry.name} fill={PIE_COLORS[entry.name]} />
-                                        ))}
-                                    </Pie>
-                                    <Tooltip
-                                        contentStyle={{
-                                            background: '#141920',
-                                            border: '1px solid rgba(255,255,255,0.08)',
-                                            borderRadius: 8,
-                                            fontSize: 12,
-                                        }}
-                                    />
-                                </PieChart>
-                            </ResponsiveContainer>
-                            <div className="pie-legend">
-                                {pieData.map(d => (
-                                    <div key={d.name} className="pie-legend-item">
-                                        <div className="pie-legend-dot" style={{ background: PIE_COLORS[d.name] }} />
-                                        <span className="pie-legend-name">{d.name}</span>
-                                        <span className="pie-legend-value" style={{ color: PIE_COLORS[d.name] }}>{d.value}</span>
-                                    </div>
-                                ))}
-                            </div>
-                        </>
-                    ) : (
-                        <div className="empty-state" style={{ padding: '30px 20px' }}>
-                            <div className="empty-state-title" style={{ fontSize: 13 }}>No data</div>
-                        </div>
-                    )}
+
+                    <div style={{ marginTop: 12, display: 'flex', gap: 8 }}>
+                        <button
+                            onClick={handleTriggerCCTVDemo}
+                            style={{
+                                flex: 1,
+                                background: 'rgba(239, 68, 68, 0.15)',
+                                border: '1px solid rgba(239, 68, 68, 0.4)',
+                                color: 'var(--accent-red)',
+                                padding: '6px 10px',
+                                borderRadius: 6,
+                                fontSize: 11,
+                                fontWeight: 600,
+                                cursor: 'pointer'
+                            }}
+                        >
+                            Simulate Zone Breach
+                        </button>
+                        <Link
+                            to="/cctv"
+                            style={{
+                                background: 'var(--bg-elevated)',
+                                border: '1px solid var(--border)',
+                                color: 'var(--text-secondary)',
+                                padding: '6px 12px',
+                                borderRadius: 6,
+                                fontSize: 11,
+                                fontWeight: 500,
+                                textDecoration: 'none',
+                                display: 'flex',
+                                alignItems: 'center'
+                            }}
+                        >
+                            Full View →
+                        </Link>
+                    </div>
                 </div>
             </div>
         </div>

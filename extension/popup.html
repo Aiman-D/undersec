@@ -2,29 +2,211 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Phishing Scan</title>
+    <title>UnderSec Phishing Guard</title>
     <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; min-width: 300px; padding: 10px; background-color: #f7f7f7; }
-        h3 { margin-top: 0; color: #333; font-size: 1.1em; }
-        #status { font-weight: bold; margin: 10px 0; padding: 8px; border-radius: 4px; text-align: center; }
-        .phishing { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
-        .legitimate { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
-        .loading { background-color: #fff3cd; color: #856404; }
-        .url-display { font-size: 0.8em; color: #555; word-wrap: break-word; margin-bottom: 10px; }
-        .confidence { font-size: 0.9em; margin-top: 5px; color: #666; }
-        /* Style for the new ML Features list */
-        ul, li { margin: 2px 0; padding-left: 18px; font-size: 0.9em; }
-        .spinner { border: 4px solid rgba(0, 0, 0, 0.1); border-top: 4px solid #007bff; border-radius: 50%; width: 20px; height: 20px; animation: spin 1s linear infinite; margin: 10px auto; }
+        :root {
+            --bg-base: #0c1017;
+            --bg-card: #141a24;
+            --border: #232d3d;
+            --text-main: #e2e8f0;
+            --text-muted: #8892a4;
+            --accent-green: #22c55e;
+            --accent-yellow: #f59e0b;
+            --accent-red: #ef4444;
+            --accent-blue: #3b82f6;
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            width: 360px;
+            margin: 0;
+            padding: 14px;
+            background-color: var(--bg-base);
+            color: var(--text-main);
+            font-size: 13px;
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border);
+        }
+        .header-title {
+            font-weight: 700;
+            font-size: 14px;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .header-tag {
+            font-size: 10px;
+            text-transform: uppercase;
+            background: rgba(59, 130, 246, 0.2);
+            color: var(--accent-blue);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+        .url-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 8px 10px;
+            border-radius: 6px;
+            font-size: 11px;
+            color: var(--text-muted);
+            word-break: break-all;
+            margin-bottom: 12px;
+            font-family: monospace;
+        }
+        .verdict-card {
+            background: var(--bg-card);
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 12px;
+            border: 1px solid var(--border);
+            text-align: center;
+        }
+        .verdict-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 12px;
+            letter-spacing: 0.05em;
+            margin-bottom: 6px;
+        }
+        .badge-allowed { background: rgba(34, 197, 94, 0.2); color: var(--accent-green); border: 1px solid rgba(34, 197, 94, 0.4); }
+        .badge-flagged { background: rgba(245, 158, 11, 0.2); color: var(--accent-yellow); border: 1px solid rgba(245, 158, 11, 0.4); }
+        .badge-blocked { background: rgba(239, 68, 68, 0.2); color: var(--accent-red); border: 1px solid rgba(239, 68, 68, 0.4); }
+        .badge-loading { background: rgba(59, 130, 246, 0.2); color: var(--accent-blue); border: 1px solid rgba(59, 130, 246, 0.4); }
+        .score-val { font-size: 22px; font-weight: 800; font-family: monospace; }
+        
+        .section-title {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin: 10px 0 6px 0;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px;
+            margin-bottom: 12px;
+        }
+        .feature-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 6px 8px;
+        }
+        .feature-label { font-size: 10px; color: var(--text-muted); }
+        .feature-val { font-size: 12px; font-weight: 600; font-family: monospace; margin-top: 2px; }
+        
+        .ai-box {
+            background: #111827;
+            border-left: 3px solid var(--accent-blue);
+            padding: 8px 10px;
+            border-radius: 4px;
+            font-size: 11px;
+            line-height: 1.4;
+            color: #cbd5e1;
+            margin-bottom: 10px;
+        }
+        .reasons-list {
+            margin: 0;
+            padding-left: 16px;
+            font-size: 11px;
+            color: #cbd5e1;
+        }
+        .reasons-list li { margin-bottom: 4px; }
+        
+        .manual-input-wrap {
+            display: flex;
+            gap: 6px;
+            margin-top: 10px;
+        }
+        .manual-input {
+            flex: 1;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 6px 8px;
+            border-radius: 4px;
+            color: #fff;
+            font-size: 11px;
+            outline: none;
+        }
+        .manual-btn {
+            background: var(--accent-blue);
+            color: #fff;
+            border: none;
+            padding: 0 10px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 11px;
+            cursor: pointer;
+        }
+        .spinner {
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-top: 2px solid var(--accent-blue);
+            border-radius: 50%;
+            width: 16px;
+            height: 16px;
+            animation: spin 0.8s linear infinite;
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 6px;
+        }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
     </style>
 </head>
 <body>
-    <h3>ML Phishing Detector</h3>
-    <div id="url-display">Scanning current tab URL...</div>
-    <div id="result">
-        <div class="spinner"></div>
-        <div id="status">Analyzing...</div>
+    <div class="header">
+        <div class="header-title">
+            <span>🛡️</span> UnderSec Phishing Guard
+        </div>
+        <span class="header-tag">Layer 4 · XGBoost</span>
     </div>
+
+    <div class="url-box" id="url-display">Scanning active browser tab...</div>
+
+    <div class="verdict-card" id="verdict-card">
+        <div class="verdict-badge badge-loading" id="status-badge">
+            <span class="spinner" id="spinner"></span> Analyzing URL
+        </div>
+        <div class="score-val" id="score-display">--%</div>
+        <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">XGBoost Phishing Probability</div>
+    </div>
+
+    <div class="section-title">7 URL Heuristic Features</div>
+    <div class="features-grid" id="features-grid">
+        <div class="feature-item"><div class="feature-label">1. URL Length</div><div class="feature-val" id="f-len-url">--</div></div>
+        <div class="feature-item"><div class="feature-label">2. Host Length</div><div class="feature-val" id="f-len-host">--</div></div>
+        <div class="feature-item"><div class="feature-label">3. Digits Count</div><div class="feature-val" id="f-digits">--</div></div>
+        <div class="feature-item"><div class="feature-label">4. Subdomain Depth</div><div class="feature-val" id="f-subs">--</div></div>
+        <div class="feature-item"><div class="feature-label">5. IP Host Indicator</div><div class="feature-val" id="f-ip">--</div></div>
+        <div class="feature-item"><div class="feature-label">6. Non-Alnum Ratio</div><div class="feature-val" id="f-non-alnum">--</div></div>
+        <div class="feature-item" style="grid-column: span 2;"><div class="feature-label">7. Shannon Path Entropy</div><div class="feature-val" id="f-entropy">--</div></div>
+    </div>
+
+    <div class="section-title">Ollama / GenAI Intelligence</div>
+    <div class="ai-box" id="ai-box">Awaiting XGBoost evaluation...</div>
+
+    <div id="reasons-container" style="display: none;">
+        <div class="section-title">Detected Indicators</div>
+        <ul class="reasons-list" id="reasons-list"></ul>
+    </div>
+
+    <div class="section-title">Manual URL Sandbox</div>
+    <div class="manual-input-wrap">
+        <input type="text" id="manual-url" class="manual-input" placeholder="Test URL (e.g., http://192.168.1.55/login)">
+        <button id="manual-btn" class="manual-btn">Scan</button>
+    </div>
+
     <script src="popup.js"></script>
 </body>
 </html>

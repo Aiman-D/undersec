@@ -1,124 +1,177 @@
 <div align="center">
-  <img src="https://img.icons8.com/color/96/000000/shield.png" alt="Undersec Logo" />
-  <h1>Undersec Security Suite</h1>
-  <p><b>An infrastructure security tool featuring a custom PostgreSQL TCP proxy (DPI), a YOLO-based CCTV anomaly engine, and an ML-powered Phishing detection extension.</b></p>
+  <img src="https://img.icons8.com/color/96/000000/shield.png" alt="UnderSec Logo" />
+  <h1>UnderSec – 4-Layer Enterprise & Showroom Security Suite</h1>
+  <p><b>Track Winner Apr 2026 · Multi-Modal Cyber-Physical Defense Infrastructure</b></p>
   
   <p>
-    <a href="https://github.com/Aiman-D/undersec/actions/workflows/test.yml">
-      <img src="https://github.com/Aiman-D/undersec/actions/workflows/test.yml/badge.svg" alt="Backend Tests">
-    </a>
     <img src="https://img.shields.io/badge/Python-3.12-blue?style=for-the-badge&logo=python" alt="Python 3.12">
     <img src="https://img.shields.io/badge/FastAPI-0.104.1-00a393?style=for-the-badge&logo=fastapi" alt="FastAPI">
     <img src="https://img.shields.io/badge/YOLOv8-Computer_Vision-FF9900?style=for-the-badge&logo=opencv" alt="YOLOv8">
-    <img src="https://img.shields.io/badge/XGBoost-Machine_Learning-FF5A5F?style=for-the-badge" alt="XGBoost">
+    <img src="https://img.shields.io/badge/XGBoost-Machine_Learning-FF5A5F?style=for-the-badge&logo=xgboost" alt="XGBoost">
+    <img src="https://img.shields.io/badge/Isolation_Forest-Scikit_Learn-orange?style=for-the-badge" alt="Isolation Forest">
     <img src="https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react" alt="React">
+    <img src="https://img.shields.io/badge/Ollama-Local_LLM-purple?style=for-the-badge" alt="Ollama">
   </p>
 </div>
 
 <br/>
 
-## 🎯 Problem Statement
-Traditional firewalls operate at the network layer (L3/L4) or rely on rigid Web Application Firewall (WAF) rules at L7, which frequently miss sophisticated, application-layer database attacks (like obfuscated SQL injections or unauthorized bulk data exfiltration) and emerging phishing domains. 
+## 🎯 Executive Overview
 
-Undersec bridges this gap by sitting directly in the database connection stream (via a custom TCP proxy) and at the browser level, applying inline Machine Learning to detect behavioral anomalies that rule-based systems miss.
+Modern enterprise and showroom environments face hybrid cyber-physical attack surfaces. Traditional firewalls operate only at network layers (L3/L4) or rely on rigid Web Application Firewall (WAF) regex rules, completely missing obfuscated database exfiltration, physical perimeter tampering, interactive kiosk degradation, and spear-phishing.
 
-## 🚀 Features
+**UnderSec** is an end-to-end, 4-layer defense system purpose-built to safeguard enterprise infrastructure and interactive Panasonic vehicle-configurator showroom exhibits through inline AI inference, deep packet inspection, computer vision, and GenAI incident intelligence.
 
-Undersec is a multi-faceted security suite built to protect the modern enterprise.
+---
 
-### 1. Database Security Gateway (TCP Proxy)
-- **Zero-Latency Custom Postgres Proxy**: Parses PostgreSQL v3 Wire Protocol using `asyncio` for zero-latency, in-memory query interception.
-- **Deep Packet Inspection (DPI)**: Analyzes queries using Abstract Syntax Tree (AST) parsing with `sqlparse` to prevent sophisticated SQL injections and unauthorized schema changes.
-- **Inline Machine Learning Inference**: Embeds an Isolation Forest model directly in the proxy loop to detect anomalies without HTTP round-trip latency.
-- **GenAI Alert Summarization**: Fire-and-forget integration with local LLMs (Ollama) via background tasks for automated, real-time incident response summarization.
+## 🛡️ The 4 Defense Layers
 
-### 2. Physical Security (CCTV Engine)
-- **Computer Vision Inference**: Utilizes the `Ultralytics YOLOv8` model for real-time person and object detection on CCTV feeds.
-- **Zone Intrusion Detection**: Generates anomaly scores and alerts based on spatial bounding-box rules.
-
-### 3. Client Security (Phishing Extension)
-- **XGBoost Phishing Model**: A trained XGBoost model that extracts 7 heuristic features (entropy, IP presence, subdomain depth, etc.) from URLs to detect phishing sites.
-- **Chrome Extension integration**: Instantly scores sites in real-time as the user navigates.
-
-## 🧠 Architecture Highlights
-
-Unlike standard CRUD applications, Undersec operates at the network and physical layer.
-
-```mermaid
-graph TD
-    Client[Postgres Client / psql] -->|TCP Connection| Proxy[TCP Proxy DPI Engine]
-    
-    subgraph Undersec Gateway
-        Proxy -->|1. Parse v3 Wire Protocol| Parser[Protocol Parser]
-        Parser -->|2. AST Tokenization| AST[sqlparse Extractor]
-        AST -->|3. Feature Vector| ML[Isolation Forest]
-        
-        ML -->|Score > Threshold| Block[Drop TCP Socket]
-        ML -->|Score < Threshold| Allow[Allow & Mock Response]
-        
-        Block -->|Fire & Forget HTTP| API[FastAPI Backend]
-        Allow -->|Fire & Forget HTTP| API
-    end
-    
-    API -->|Save Log| DB[(SQLite Database)]
-    API -->|Background Task| GenAI[Ollama LLM]
-    GenAI -.->|Generates| Summary[Alert Summary]
-    
-    UI[React Dashboard] -->|Polls| API
+```
+                                      ┌───────────────────────────────────────────────────────────────┐
+                                      │             UnderSec Unified Security Suite                   │
+                                      └───────────────────────────────┬───────────────────────────────┘
+                                                                      │
+            ┌──────────────────────────┬──────────────────────────────┴──────────────────────────────┬──────────────────────────┐
+            ▼                          ▼                                                             ▼                          ▼
+ ┌──────────────────────┐   ┌──────────────────────┐                                      ┌──────────────────────┐   ┌──────────────────────┐
+ │       Layer 1        │   │       Layer 2        │                                      │       Layer 3        │   │       Layer 4        │
+ │ PostgreSQL v3 Proxy  │   │  Panasonic Showroom  │                                      │     YOLOv8 CCTV      │   │  XGBoost Extension   │
+ │   Wire DPI & AST     │   │  Hardware Telemetry  │                                      │    Zone-Intrusion    │   │  7 URL Heuristics    │
+ └──────────┬───────────┘   └──────────┬───────────┘                                      └──────────┬───────────┘   └──────────┬───────────┘
+            │                          │                                                             │                          │
+            │ Drops SQLi Sockets       │ Monitors 3D FPS, GPU, Touch                                 │ Spatial Perimeter Bounds │ Real-Time Browser Guard
+            │                          │                                                             │                          │
+            └──────────────────────────┴──────────────────────────────┬──────────────────────────────┴──────────────────────────┘
+                                                                      │
+                                                                      ▼
+                                                    ┌───────────────────────────────────┐
+                                                    │   Unified FastAPI + React Hub     │
+                                                    │  + Ollama LLM Incident Summarizer │
+                                                    └───────────────────────────────────┘
 ```
 
-## ⚖️ Hackathon Trade-offs & Engineering Rigor
+### 1. PostgreSQL v3 Wire Protocol TCP Proxy (asyncio)
+- **Zero-Latency In-Memory Packet Interception**: Listens on TCP port `5432` (or `9000`), parsing raw PostgreSQL v3 wire packets (`SSLRequest`, `StartupMessage`, `Query ('Q')`).
+- **AST Deep Packet Inspection (DPI)**: Tokenizes query trees with `sqlparse` to detect nested comment bypasses, schema destruction (`DROP`, `ALTER`, `TRUNCATE`), multi-statement piggybacking, and `UNION` exfiltration tokens.
+- **Inline Isolation Forest Inference**: Embeds trained `IsolationForest` scoring directly in the proxy loop. When anomaly thresholds are violated, the proxy immediately emits a `FATAL` error packet (`'E'`) and **drops the TCP client socket**.
 
-This project was originally built during a weekend hackathon. To balance speed of delivery with production reality, the following trade-offs and optimizations were made:
+### 2. Panasonic Showroom Hardware Health Telemetry
+- **Interactive Vehicle-Configurator Fleet**: Tracks live diagnostic telemetry across 5 showroom display kiosks:
+  - `PAN-CFG-01`: Main Pavilion - 8K Ultra-Wall Configurator (*Panasonic TH-98CQE2U / Lexus Concept Sport EV*)
+  - `PAN-CFG-02`: EV Studio - 4K Interactive Touch Pod (*Panasonic TH-65SQE2W / Lexus RZ 450e SUV*)
+  - `PAN-CFG-03`: VIP Bespoke Lounge - Dual Curved OLED Kiosk (*Panasonic TX-65MZ2000 Pro / Toyota Crown Signia*)
+  - `PAN-CFG-04`: Materials & Trim Multi-Touch Table (*Panasonic Touch-Station Pro / Interior Finishes*)
+  - `PAN-CFG-05`: Entrance Foyer - Interactive Portfolio Station (*Panasonic TH-55SQ2H / Commercial Signage*)
+- **Telemetry Monitored**: 3D Unreal/WebGL viewport rendering FPS, GPU core thermal state (°C), panel backlight temperature (°C), capacitive multi-touch digitizer latency (ms), active touch points, HDMI 2.1 signal lock, and enclosure chassis tamper switches.
+- **Fault Injection Sandbox**: Live simulation triggers for GPU thermal surge, touch digitizer lag, chassis tamper alerts, and frame crashes.
 
-- **Proxy Latency vs Extensibility**: Initially, the proxy made blocking HTTP calls to the backend to score queries. Recognizing this would cause catastrophic database latency under load, it was refactored. The ML model (`predict_query_risk`) is now embedded directly in the proxy loop for sub-millisecond inference, while logging remains asynchronous.
-- **Heuristics vs AST Parsing**: Early iterations used regex for SQL injection detection. This was upgraded to full AST parsing (`sqlparse`) to prevent evasion techniques (e.g., hiding payloads in nested comments).
-- **Graceful Degradation**: If the local LLM instance (Ollama) goes down or times out, the system automatically falls back to deterministic rule-based alert summarization to ensure security monitoring is never interrupted.
+### 3. YOLOv8 CCTV Zone-Intrusion Engine
+- **Perimeter & Physical Asset Protection**: Powered by `Ultralytics YOLOv8` with PyTorch 2.6 runtime compatibility.
+- **Spatial Security Zones**:
+  - `ZONE-01-CONCEPT`: Restricted Vehicle Stage (*Prototype Concept Car*)
+  - `ZONE-02-PROXY-CORE`: UnderSec Gateway & Database Proxy Cabinet Enclosure (*Critical Infrastructure*)
+  - `ZONE-03-CONFIGURATOR`: Customer Interactive Configurator Corridor (*Public Zone*)
+- **Footprint Intersection Logic**: Evaluates ground-contact points against polygon zone boundaries to distinguish authorized showroom visitors from perimeter intruders, generating live annotated JPEG streams and anomaly scores.
+
+### 4. Real-Time XGBoost Chrome Phishing Extension (7 URL Heuristic Features)
+- **Trained Machine Learning Model**: Gradient boosted decision tree (`XGBClassifier`) evaluating **7 structural heuristic features**:
+  1. `len_url`: Total URL length
+  2. `len_host`: Hostname length
+  3. `count_digits`: Total digits in URL
+  4. `subdomains`: Subdomain count & depth
+  5. `has_ip`: IP address host indicator (`1.0` or `0.0`)
+  6. `non_alnum`: Ratio of non-alphanumeric special characters
+  7. `path_entropy`: Shannon entropy of the URL path and query parameters
+- **Manifest v3 Chrome Extension**: Background service worker inspecting active tabs in real-time, dynamically updating extension badges (`OK`, `WARN`, `DROP`) and providing a companion popup with visual feature breakdowns and sandbox scanning.
+
+### 🤖 GenAI Incident Intelligence (Ollama LLM)
+- Cross-correlates multi-layer incident telemetry across database socket drops, showroom hardware degradation, perimeter breaches, and phishing attacks.
+- Synthesizes automated executive security briefings and immediate containment recommendations using local LLMs (Ollama `llama3`/`mistral`) with deterministic hybrid fallback.
+
+---
 
 ## 🛠️ Tech Stack
 
-- **ML & CV**: `scikit-learn`, `xgboost`, `ultralytics (YOLO)`, `opencv`
-- **Proxy**: Python, `asyncio`, `sqlparse`
-- **Backend**: FastAPI, SQLAlchemy, SQLite
-- **Frontend**: React, Recharts
-- **Testing**: `pytest`, `pytest-asyncio`
+| Domain | Technologies |
+|---|---|
+| **L1 Wire Proxy** | Python 3.12, `asyncio`, `struct`, `sqlparse`, `scikit-learn` (Isolation Forest) |
+| **L2 Showroom Telemetry** | Python, FastAPI, NumPy, psutil, interactive diagnostic simulator |
+| **L3 Vision Engine** | `ultralytics` (YOLOv8), `opencv-python-headless`, PyTorch 2.6 |
+| **L4 Client Security** | `xgboost`, Chrome Extension (Manifest v3, Service Worker) |
+| **GenAI Intelligence** | Ollama local LLM (`llama3`), background task correlation |
+| **Backend API** | FastAPI, SQLAlchemy, SQLite, Pydantic, HTTPX |
+| **Frontend** | React 19, Recharts, Lucide Icons, Modern Cyber-Dark CSS |
+
+---
 
 ## 🏃 Getting Started
 
-### 1. Backend & Proxy
+### 1. Backend & Proxy Setup
+
 ```bash
 cd backend
-python3 -m venv venv
-source venv/bin/activate
+
+# Install dependencies
 pip install -r requirements.txt
 
-# Start the API Backend
-uvicorn main:app --reload
-
-# In a new terminal, start the TCP Proxy
-python tcp_proxy.py
+# Start the FastAPI Central Security Gateway
+uvicorn main:app --reload --port 8000
 ```
 
-### 2. Frontend
+In a separate terminal, start the PostgreSQL Wire Protocol TCP Proxy:
+```bash
+cd backend
+python tcp_proxy.py
+```
+*The proxy will listen on `0.0.0.0:5432` (or fall back to port `9000` if 5432 is occupied).*
+
+### 2. Frontend React Dashboard
+
 ```bash
 cd frontend
 npm install
 npm start
 ```
+*The dashboard opens at `http://localhost:3000`.*
 
-### 3. Generate Traffic
+### 3. Chrome Extension Installation
+
+1. Open Google Chrome and navigate to `chrome://extensions/`.
+2. Enable **Developer mode** (toggle in top-right corner).
+3. Click **Load unpacked** and select the `/extension` directory in this repository.
+4. The **UnderSec Phishing Guard** icon will appear in your extensions bar, automatically inspecting active tabs via your local FastAPI engine.
+
+### 4. Live Multi-Layer Demo Traffic Generator
+
+To simulate real-time traffic across all 4 layers (queries, display telemetry, CCTV breaches, phishing checks, and Ollama incident briefings):
 ```bash
-# Run the demo runner to simulate normal and malicious database traffic
 python demo_runner.py
 ```
 
-## 🧪 Testing
+---
 
-Undersec includes a robust `pytest` suite for the `feature_extractor` and `postgres_parser`. It is automatically run via GitHub Actions on every push.
+## 🧪 Comprehensive Verification
+
+UnderSec includes automated tests validating all 4 layers, model inference, and wire protocol socket behavior:
+
 ```bash
 cd backend
-PYTHONPATH=. pytest tests/
+PYTHONPATH=. pytest tests/ -v
 ```
 
+### Verified Test Matrix:
+- `test_ast_deep_packet_inspection_drop_table`: AST classification of destructive schema changes.
+- `test_ast_deep_packet_inspection_union_sqli`: AST detection of `UNION` exfiltration tokens.
+- `test_isolation_forest_scoring`: Verifies normal vs anomalous scoring separation.
+- `test_tcp_proxy_drops_sqli_socket`: Proves TCP proxy immediately writes error packet and closes client socket on SQLi.
+- `test_showroom_fleet_telemetry`: Verifies telemetry from all 5 Panasonic vehicle-configurator displays.
+- `test_showroom_fault_injection_and_recovery`: Tests diagnostic fault injection and recovery.
+- `test_cctv_intrusion_detection_and_frame_gen`: Validates YOLOv8 zone intrusion spatial detection and JPEG frame synthesis.
+- `test_extract_7_url_heuristic_features`: Validates extraction of all 7 URL heuristic features.
+- `test_xgboost_phishing_inference`: Tests trained XGBoost classifier on safe and phishing URLs.
+- `test_incident_summarization_fallback`: Tests multi-layer Ollama incident summarization and structured fallback.
+
+---
+
 ## 🛡️ License
-MIT License
+MIT License · Built with rigor for the modern enterprise.
